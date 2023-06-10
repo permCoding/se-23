@@ -8,4 +8,4 @@ let n = 38
 let start = Date.now()
 let result = fib(n)
 let finish = Date.now()
-console.log(`${result}\ttime=${finish-start}`)
+console.log(`${result}\ttime = ${finish-start} ms`)

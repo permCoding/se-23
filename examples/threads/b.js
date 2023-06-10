@@ -6,7 +6,7 @@ const get_result = (n) => new Promise((resolve) => {
     let start = Date.now()
     let result = fib(n)
     let finish = Date.now()
-    console.log(`${result}\tone time = ${finish-start}`)
+    console.log(`${result}\tone time = ${finish-start} ms`)
     resolve(result)
 })
 
@@ -27,6 +27,6 @@ const main = async () => {
     )
     let finish = Date.now()
     console.log(results)
-    console.log(`all time = ${finish-start}`)
+    console.log(`all time = ${finish-start} ms`)
 }
 main().catch(console.error)

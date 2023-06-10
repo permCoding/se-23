@@ -24,6 +24,11 @@ const main = async () => {
             run_thread({n}),
             run_thread({n}),
             run_thread({'n': n}),
+            run_thread({n}),
+            run_thread({n}),
+            run_thread({n}),
+            run_thread({n}),
+            run_thread({'n': n}),
         ]
     )
     let finish = Date.now()
