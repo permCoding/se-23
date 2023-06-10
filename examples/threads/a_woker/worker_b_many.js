@@ -37,5 +37,5 @@ const main = async () => {
 }
 
 console.clear()
-console.log('one thread')
+console.log('many threads')
 main().catch(console.error)
