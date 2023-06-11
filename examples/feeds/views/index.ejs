@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Отзывы</title>
+    <link rel="stylesheet" type="text/css" href="/feed.css" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+</head>
+
+<body>
+    <h1>Название фильма: Флэш</h1>
+<div class="wrapper">
+    <div class="card__films">
+        <img src="/img/maxresdefault.jpg" alt="Фильм" class="card__image">
+        <span class="card__films-desc">
+            Эзра Миллер в роли супергероя из вселенной DC, в фантастическом боевике режиссера фильма «Оно». Физик Барри Аллен подвергается облучению в ходе неудачного эксперимента.<br><br>
+            К своему удивлению, герой не только остается жив, но и вскоре обнаруживает в себе суперспособности.<br><br>
+            Теперь, нарушая все законы физики, он может передвигаться со сверхзвуковой скоростью.
+        </span>
+
+    </div>
+    
+    <br>
+    <form action="/feed" method="get" style="display: flex; justify-content: flex-end;"> <!-- вызов события /feed -->
+        <button id="send">Добавить отзыв</button>
+    </form>
+    <br>
+    <span class="reviews__film">Что думают зрители о фильме?</span>
+    <% for (let feed of feeds) { %>
+        <div class="reviews__item">
+            <div class="reviews__card-all">
+                <img src="/img/male.jpg" alt="Пользователь" class="reviews__card-image">
+                <div class="reviews__card">
+                    <span class="reviews__card-author"><%=feed.name%></span>
+                    <span class="reviews__card-text"><%=feed.feed%></span>
+                </div>
+            </div>
+        </div>
+    <%} %>
+</div>
+</body>
+</html>
