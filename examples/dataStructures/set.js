@@ -7,4 +7,11 @@
 // set.clear() – удаляет все имеющиеся значения.
 // set.size – возвращает количество элементов в множестве.
 
-// let
+let st = new Set([1,2,3])
+st.add(2)
+st.add(3)
+st.add(3)
+console.log(st)
+console.log(st.delete(2))
+console.log(st.has(2))
+console.log(`size = ${st.size}`)
