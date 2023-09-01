@@ -1,26 +1,27 @@
+const log = console.log
 
 const ex01 = () => {
     let id1 = Symbol()
     let id2 = Symbol()
-    
-    console.log(id1 == id2)
-    console.log(id1 === id2)    
+    log(`type of id1 = ${typeof id1}`)
+    log(id1 == id2)
+    log(id1 === id2)
 }
 
 const ex02 = () => {
     let id1 = Symbol('id')
     let id2 = Symbol('id')
     
-    console.log(id1 == id2)
-    console.log(id1 === id2)    
+    log(id1 == id2)
+    log(id1 === id2)
 }
 
 const ex03 = () => {
     let id = Symbol('id')
     
-    console.log(id)
-    console.log(id.toString())
-    console.log(id.description)    
+    log(id)
+    log(id.toString())
+    log(id.description)
 }
 
 const ex04 = () => {
@@ -31,11 +32,11 @@ const ex04 = () => {
     }
     let id = Symbol('id')
     user[id] = 1
-    console.log(user)
-    console.log(JSON.stringify(user, null, 4))
-    console.log(user[id])
+    log(user)
+    log(JSON.stringify(user, null, 4))
+    log(user[id])
     user[id]++
-    console.log(user[id])
+    log(user[id])
 }
 
 ex01()
