@@ -9,13 +9,15 @@
 ### А. Примитивные типы  
 
 ```txt
-- Number: целые, вещественные, NaN, Infinity (значение бесконечности)  
-- String: "str", 'str', `str`
 - Boolean: true, false  
-- Null: null  
-- Undefined: undefined  
+- Number: целые, вещественные, NaN, Infinity (значение бесконечности)  
 - BigInt: целые числа произвольной длины  
-- Symbol(): для создания уникальных идентификаторов
+- string: "str", 'str', `str`  
+- symbol: для создания уникальных идентификаторов  
+- undefined: переменная объявлена, но ей не присвоено значение
+- object: объекты, массивы, null  
+- function
+
 ```
 
 > [NaN является значением, представляющим не-число Not-A-Number](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/NaN)  
