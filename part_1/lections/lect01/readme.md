@@ -20,8 +20,8 @@
 
 ```
 
-> [NaN является значением, представляющим не-число Not-A-Number](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/NaN)  
-> Symbol(): для создания [уникальных идентификаторов](https://tc39.es/ecma262/#sec-ecmascript-language-types-symbol-typ
+[NaN является значением, представляющим не-число Not-A-Number](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/NaN)  
+Symbol(): для создания [уникальных идентификаторов](https://tc39.es/ecma262/#sec-ecmascript-language-types-symbol-typ)  
 
 ### Б. Ссылочные типы  
 
