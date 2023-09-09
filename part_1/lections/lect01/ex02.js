@@ -61,7 +61,7 @@ function ex04() { // так нельзя - анонимные не имеют с
     console.log(arr.sumSides())
 }
 
-function ex05() { // так нельзя - анонимные не имеют ссылку
+function ex05() { // так можно - есть ссылка на функцию
     Array.prototype.sumSides = function () {
         return this[0] + this[this.length-1]
     }
@@ -70,4 +70,13 @@ function ex05() { // так нельзя - анонимные не имеют с
     console.log(arr.sumSides())
 }
 
-ex05()
+const ex06 = () => {
+    Array.prototype.upArray = function (up) {
+        return this.map(x => x + Math.floor(Math.random() * up))
+    }
+
+    let arr = Array(10).fill(0).map((elm,ind) => ind).upArray(5)
+    console.log(arr)
+}
+
+ex06()

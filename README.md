@@ -27,6 +27,9 @@ Software Engineering Node.js 2023-2024
 > [MDN Web Docs - Mozilla Developer Network](https://developer.mozilla.org/ru/docs/Learn/JavaScript)  
 > [Функциональное программирование JS](https://pcoding.ru/pdf/jsFuncCoding.pdf)  
 > [Основы JS - браузер и консоль](https://pcoding.ru/pdf/jsManual.pdf)  
+> [rambda docs](https://ramdajs.com/docs/)  
+> [lodash.com/docs](https://lodash.com/docs/)  
+> [docs-lodash.com](https://docs-lodash.com/v4/)  
 
 ## install  
 
