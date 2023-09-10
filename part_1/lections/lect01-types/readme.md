@@ -1,4 +1,4 @@
-# Типы и структуры данных
+# ЛЕКЦИЯ 1. Типы и структуры данных
 
 [ecmascript-language-types](https://tc39.es/ecma262/#sec-ecmascript-language-types)  
 
