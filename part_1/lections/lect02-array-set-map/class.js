@@ -4,7 +4,8 @@ class Struct {
     }
 
     last = () => {
-        return this.array[this.array.length-1]
+        return this.array[-1]
+        // return this.array[this.array.length-1]
     }
 
     size = () => {
@@ -26,7 +27,11 @@ class Struct {
 console.clear
 
 let arr = new Struct(10)
-
+let field  = "array"
+console.log(arr.array)
+console.log(arr["array"])
+console.log(arr.array.toString())
+console.log(arr.array.join(''))
 console.log(arr, arr.size())
 
 arr.delete(1)

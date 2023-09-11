@@ -29,8 +29,8 @@
 
 Methods  
 
-- toString, includes, indexOf, lastIndexOf, find(func==true), findIndex(func==true)
 - map, filter, reduce, every, some, forEach, sort  
+- toString, includes, indexOf, lastIndexOf, find(func==true), findIndex(func==true)
 - join, slice (с отриц индекс), splice, push, pop, shift, unshift, reverse  
 - итераторы: keys(), values(), entries(), iterator.next().value  
 
