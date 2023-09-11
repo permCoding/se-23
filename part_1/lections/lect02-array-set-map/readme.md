@@ -29,8 +29,9 @@
 
 Methods  
 
-- map, filter, reduce, every, some  
-- slice, splice, push, pop, shift, unshift, reverse  
+- toString, includes, indexOf, lastIndexOf, find(func==true), findIndex(func==true)
+- map, filter, reduce, every, some, forEach, sort  
+- join, slice (с отриц индекс), splice, push, pop, shift, unshift, reverse  
 - итераторы: keys(), values(), entries(), iterator.next().value  
 
 ---  
