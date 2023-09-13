@@ -19,8 +19,19 @@ const to_bin_str = (dec) => {
     return str
 }
 
+const to_bin_rec = (dec) => {
+    if (dec == 0) { // точка останова
+        return ""
+    }
+    else { // шаг рекурсии
+        return to_bin_rec(Math.floor(dec/2)) + (dec%2).toString()
+    }
+}
+
 module.exports = {
     log,
     clear,
-    to_bin_str
+    to_bin_str,
+    to_bin_rec,
+    to_bin_arr
 }
