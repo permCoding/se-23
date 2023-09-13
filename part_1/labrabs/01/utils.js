@@ -28,10 +28,16 @@ const to_bin_rec = (dec) => {
     }
 }
 
+const to_dec = {
+
+}
+
 module.exports = {
     log,
     clear,
     to_bin_str,
     to_bin_rec,
-    to_bin_arr
+    to_bin_arr,
+    to_dec
+
 }
