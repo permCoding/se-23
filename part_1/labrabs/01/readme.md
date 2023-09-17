@@ -1,5 +1,7 @@
 # LABRAB_01  
 
+Все задания можно делать в https://replit.com  
+
 ---  
 
 ## task_01  
