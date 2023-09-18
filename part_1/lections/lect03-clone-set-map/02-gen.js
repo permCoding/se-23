@@ -11,9 +11,9 @@ function* range(a, b, step=1) {
 
 console.clear();
 
-for (let elm of range(2, 20, 3)) { // сделаем как в Python
-    log(elm)
-}
+// for (let elm of range(5, 15)) { // сделаем как в Python
+//     log(elm)
+// }
 
 let gen = range(2, 20, 3)
 log(gen.next().value)

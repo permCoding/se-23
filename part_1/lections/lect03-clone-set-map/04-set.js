@@ -10,7 +10,7 @@
 // set.clear() – удаляет все элементы
 // set.size – возвращает количество элементов
 
-let st = new Set([1,2,3])
+let st = new Set([1,2,3,2,2])
 st.add(2)
 st.add(3)
 st.add(3)
