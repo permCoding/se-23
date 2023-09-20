@@ -1,6 +1,6 @@
-const obj = require("./module")
+const { getFact, toBinary } = require("./module")
 
 
 console.clear()
-let line = "12 45 34 77"
-console.log(obj.getSum(line))
+console.log(toBinary(32)) // 1100
+console.log(getFact(10))
