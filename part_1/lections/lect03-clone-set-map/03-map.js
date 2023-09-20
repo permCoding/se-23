@@ -11,33 +11,34 @@
 // map.clear() – удаляет все элементы
 // map.size – возвращает количество элементов
 
-let st = new Map([
-    [1, 'one']
-])
-st.set(5, "пять").set("5", "five")
-// console.log(st)
-// Map(3) { 1 => 'one', 5 => 'пять', '5' => 'five' }
+console.clear()
 
+let st = new Map([ [1, 'one'], [true, 'true'] ])
+st
+    .set(5, "пять")
+    .set("5", "five")
+// console.log(st)
 
 // for (let item of st) console.log(item)
 // for (let item of st.entries()) console.log(item)
 // for (let item of st.keys()) console.log(item)
 // for (let item of st.values()) console.log(item)
-console.clear()
 
-st.set("id", 1001)
-// console.log(st)
+
+// st.set("id", 1001)
 // console.log(`id = ${st.get("id")}`)
 
 let entries = Object.entries(
     {
-        22:"22",
-        33:"33"
+        22: "22",
+        33: "33"
     }
 )
-console.log(entries)
-let pair = [999, {"abs": 1024}]
+// console.log(entries)
+let pair = ["999", {"abs": 1024}]
 entries.push(pair)
 // console.table(entries)
+// console.log(entries)
 let obj = Object.fromEntries(entries)
+// console.log(obj)
 console.log(JSON.stringify(obj,null,4))
