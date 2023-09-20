@@ -6,7 +6,7 @@ Software Engineering Node.js 2023-2024
 
 > [Анкетирование и Тестирование - EXAM](http://exam.1gb.ru/)  
 > [Дистант | Программная инженерия - bbb6](https://bbb6.psaa.ru/b/76k-oto-gpt-xpb)  
-> [Рейтинг группы ПИб-3](https://docs.google.com/spreadsheets/d/1okKTborMWASpchal7MBvJUuhEqOa-GrJVlUM2yYnz5M/edit?usp=sharing)  
+> [Рейтинг группы ПИб-3](https://docs.google.com/spreadsheets/d/1j1WpSzuvWlR3ZLh-POSUbtCKAj3eKIIxafZi9TnP_vs/edit?usp=sharing)  
 
 | семестр | Лекций | ЛабРаб | Отчётность |
 | :-: | :-: | :-: | :-: |
