@@ -30,6 +30,7 @@ Software Engineering Node.js 2023-2024
 > [Функциональное программирование JS](https://pcoding.ru/pdf/jsFuncCoding.pdf)  
 > [Основы JS - браузер и консоль](https://pcoding.ru/pdf/jsManual.pdf)  
 > [rambda docs](https://ramdajs.com/docs/)  
+> [rambda examples](https://examplejavascript.com/ramda/)  
 > [lodash.com/docs](https://lodash.com/docs/)  
 > [docs-lodash.com](https://docs-lodash.com/v4/)  
 
@@ -52,6 +53,7 @@ Software Engineering Node.js 2023-2024
 • PascalCase (used in JS)
 • snake_case
 • kebab-case
+• lazycase
 
 ```txt
 npm install название-пакета  // установка пакетов
