@@ -1,4 +1,4 @@
-const { isInteger } = require("lodash")
+// const { isInteger } = require("lodash")
 
 const log = console.log
 
@@ -66,14 +66,15 @@ const ex03 = () => {
 
 const ex04 = () => {
     // статические методы видны глобально
+    log(parseInt("1213231"))
     log(Number.isInteger("123"))
     log(Number.isInteger(123))
     log(Number.isInteger("mail@ya.ru"))
-    log(isInteger(234))
+    // log(isInteger(234))
     log(Number.parseFloat("123.456"))
     log(parseFloat("123.456"))
     // Number.prototype.toFixed - метод объекта
-    log((123.456).toFixed(2))
+    log(123.456.toFixed(2))
 }
 
 console.clear()
