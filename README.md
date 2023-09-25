@@ -9,6 +9,7 @@ Software Engineering Node.js 2023-2024
 > [Дистант | Программная инженерия - bbb](https://bbb.psaa.ru/rooms/4hq-uur-7nl-kgz/join)  
 > [Дистант | Программная инженерия - bbb6](https://bbb6.psaa.ru/b/76k-oto-gpt-xpb)  
 > [Рейтинг группы ПИб-3](https://docs.google.com/spreadsheets/d/1j1WpSzuvWlR3ZLh-POSUbtCKAj3eKIIxafZi9TnP_vs/edit?usp=sharing)  
+> [Рейтинг группы ПИнб-3] (https://docs.google.com/spreadsheets/d/1YuFZAn8Lwv4M4CD99i9K9V3dknu7iTdJAOZjwVSkzvU/edit?usp=sharing)  
 
 | семестр | Лекций | ЛабРаб | Отчётность |
 | :-: | :-: | :-: | :-: |
@@ -17,9 +18,10 @@ Software Engineering Node.js 2023-2024
 
 ##### Что будем изучать:
 
+- Node.js, SQLite, json, regex, потоки, lodash, rambda, express, promise, callback, async  
+- разные типы и структуры данных (BigInt, Symbol, Stack, Queue, Map, Set, Object, Array, Tree)  
 - функциональное и событийное программирование на JS  
 - архитектуру и маршрутизацию web-приложений  
-- Node.js, SQLite, json, regex, потоки, lodash, rambda, express, promise, callback, async  
 
 ---  
 
