@@ -1,5 +1,5 @@
-const { getArray } = require('./module')
+const { getArrayRandom } = require('./module')
 
 
-let arr = getArray()
+let arr = getArrayRandom()
 console.log(arr)
