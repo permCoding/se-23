@@ -69,4 +69,11 @@ nvm use v14  // если несколько версий, то можно пер
 
 ```
 
+```txt
+X.Y.Z Version
+MAJOR version -- when you make incompatible API changes,
+MINOR version -- when you add functionality in a backwards-compatible manner, and
+PATCH version -- when you make backwards-compatible bug fixes.
+```
+
 > [Про разметку md](https://github.com/sandino/Markdown-Cheatsheet/blob/master/README.md)  
