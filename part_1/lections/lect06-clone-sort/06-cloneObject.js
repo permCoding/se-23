@@ -33,7 +33,7 @@ for (let key in obj) {
 // let obj_new = cloneDeep(obj);
 
 obj_new['age'] = 36;
-// obj_new['address']['city'] = "Добрянка";
+// obj_new['address']['city'] = "Добрянка"; // его пока нет
 
 console.log(obj);
 console.log(obj_new);
