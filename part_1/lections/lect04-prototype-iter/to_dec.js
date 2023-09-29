@@ -52,6 +52,13 @@ const to_decimal____ = (binary) => {
         .reduce((a,c) => a+c, 0)
 }
 
+const to_float_decimal = (binary) => {
+    // сделать в функциональном стиле
+    // map, reduce
+    return null
+}
+
+
 console.clear()
 
 let binary = "10000100000"
@@ -60,7 +67,7 @@ console.log(to_decimal_(binary))
 console.log(to_decimal__(binary))
 console.log(to_decimal___(binary))
 console.log(to_decimal____(binary))
-
+console.log(to_float_decimal("0.11")) // 0.75
 
 // сформулировать задачу про функцию 
 // которая работает с вещественными 2 и 10
