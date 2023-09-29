@@ -20,14 +20,47 @@ const to_decimal_ = (binary) => {
     return decimal
 }
 
-let binary = "100000000011110100000000000000000111111111111111111001111" // 1*2**3 + ...
+String.prototype.reverse = function () {
+    return this.split('').reverse().join('')
+}
+
+const to_decimal__ = (binary) => {
+    binary = binary.reverse()
+    let decimal = 0
+    let i = 0
+    while (i < binary.length) {
+        decimal += +binary[i] * 2**i
+        i++
+    }
+    return decimal
+}
+
+const to_decimal___ = (binary) => {
+    let p = 1, decimal = 0
+    for (let elm of binary.reverse()) {
+        decimal += +elm * p
+        p *= 2
+    }
+    return decimal
+}
+
+const to_decimal____ = (binary) => {
+    return binary
+        .split('')
+        .reverse()
+        .map((x,i) => +x * 2**i)
+        .reduce((a,c) => a+c, 0)
+}
+
 console.clear()
+
+let binary = "10000100000"
 console.log(to_decimal(binary))
+console.log(to_decimal_(binary))
+console.log(to_decimal__(binary))
+console.log(to_decimal___(binary))
+console.log(to_decimal____(binary))
 
-// String.prototype.reverse = function () {
-//     return null
-// }
 
-// reduce
-
-// сформулировать задачу про функцию которая работает с вещественными 2 и 10
+// сформулировать задачу про функцию 
+// которая работает с вещественными 2 и 10
