@@ -67,6 +67,7 @@ console.log(to_decimal_(binary))
 console.log(to_decimal__(binary))
 console.log(to_decimal___(binary))
 console.log(to_decimal____(binary))
+
 console.log(to_float_decimal("0.11")) // 0.75
 
 // сформулировать задачу про функцию 
