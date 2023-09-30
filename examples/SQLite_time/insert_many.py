@@ -8,7 +8,7 @@ def get_rate(a=160, b=240):
     return randint(a, b)
 
 names = ["Andor", "Mike", "Nino", "Sandra", "Jo", "Franko", "Petro", "Olga"]
-count = 10000  # amount records for insert
+count = 90000  # amount records for insert
 conn = sqlite3.connect('time.db')
 cursor = conn.cursor()
 
@@ -18,7 +18,7 @@ query = 'INSERT INTO students ("name", "rate") VALUES (?, ?)'
 for i in range(count):
     cursor.execute(query, (f'{get_name(names)}', f'{get_rate()}'))
 
-    if i % 1000 == 0:  # делаем сохранение на каждой 1000-ой записи
+    if i % 10000 == 0:  # делаем сохранение на каждой 1000-ой записи
         conn.commit()
         cursor.execute('BEGIN TRANSACTION')  # начинаем следующую трансакцию
 
