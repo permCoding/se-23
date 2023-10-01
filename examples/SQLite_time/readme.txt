@@ -2,7 +2,7 @@ sudo apt install sqlite3
 
 ---
 
-CREATE TABLE "students" (
+CREATE TABLE IF NOT EXISTS "students" (
 	"id"	INTEGER,
 	"name"	TEXT,
 	"rate"	INTEGER,
