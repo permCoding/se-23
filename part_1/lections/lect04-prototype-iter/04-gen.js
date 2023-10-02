@@ -3,13 +3,13 @@ const log = console.log
 function* range(a, b, step=1) {
     let i = a
     while (i < b) {
-        yield i
+        yield i // pause
         i += step
     }
 }
 
 function ex01() {
-    for (let elm of range(5, 15)) { // сделаем как в Python
+    for (let elm of range(5, 15, 2)) { // сделаем как в Python
         log(elm)
     }
 }
@@ -26,5 +26,5 @@ function ex02() {
 }
 
 console.clear();
-ex01()
+// ex01()
 ex02()

@@ -1,4 +1,4 @@
-//keys(), values(), entries(), iterator.next().value  
+// keys(), values(), entries(), iterator.next().value  
 
 const log = console.log
 
@@ -16,7 +16,7 @@ const ex01 = () => {
 }
 
 const ex02 = () => {
-    iter = arr.values()
+    let iter = arr.values()
     while (value = iter.next().value) {
         log(value, typeof value)
     }
