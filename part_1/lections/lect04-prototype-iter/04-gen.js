@@ -9,8 +9,8 @@ function* range(a, b, step=1) {
 }
 
 function ex01() {
-    for (let elm of range(5, 15, 2)) { // сделаем как в Python
-        log(elm)
+    for (i of range(2, 11, 3)) { // сделаем как в Python
+        log(i)
     }
 }
 
@@ -22,9 +22,9 @@ function ex02() {
     log(gen.next())
     log(gen.next())
     log(gen.next())
-    log(gen.next())
+    log(gen.next()) // done: true
 }
 
-console.clear();
+console.clear()
 // ex01()
 ex02()
