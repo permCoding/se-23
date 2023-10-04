@@ -71,18 +71,15 @@ const select = () => {
 	db.close()
 }
 
-// createTable()
+createTable()
 // deleteTable()
 // insertData(100_000)
 // createIndex()
 // deleteIndex()
 
-select()
+// select()
 
 /*
-
-100_000 records - 2,0Mb - without index - 30ms-DBBrowser - 27ms-Node
-100_000 records - 3,6Mb - with___ index - 06ms-DBBrowser - 06ms-Node
 
 200_000 records - 3,9Mb - without index - 42ms-DBBrowser - 35ms-Node
 200_000 records - 7,2Mb - with___ index - 04ms-DBBrowser - 05ms-Node
