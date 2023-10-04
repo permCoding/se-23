@@ -72,6 +72,7 @@ class Stack {
 Вопросов: 6   time_limit: 900 sek  
 Методы: slice, splice, join, concat, reverse, filter, map, reduce.  
 ```
+Пример работы с этими методами: https://replit.com/@pCoding/labrab01  
 
 > Обратите внимание что время на тестирование ограничено.  
 > После исчерпания лимита времени повторное прохождение закрыто.  
