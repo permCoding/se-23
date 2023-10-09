@@ -22,6 +22,7 @@ let a = [3, 1, 5]
 log(a.reduce((acc, cur, ind) => {
     field = ind.toString()
     acc[field] = cur
+    return acc // забыл написать return
 }, {}))
 
 /*
