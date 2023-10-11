@@ -10,6 +10,9 @@
 
 **ОБСУДИТЬ:**  
 
+"0" in arr  
+цикл по объекту - in, of  
+итераторы  
 arr.at -1  
 reduce acc null  
 reduce obj  
