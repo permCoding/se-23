@@ -6,7 +6,7 @@ class A {
         this.#sideC = _sideC 
     }
     get sideC() {
-        return this.#sideC
+        return "0." + this.#sideC.toString()
     }
     set sideC(value) {
         if (value > 0) {
@@ -18,12 +18,13 @@ class A {
 
 const log = console.log
 console.clear()
+
 let tre = new A()
-for (let f in tre) {
-    log(f, tre[f])
+for (let field in tre) {
+    log(field, tre[field])
 }
 log(tre.sideC)
-tre.sideC = 0
+tre.sideC = 0  // не сработает - так как свойство
 log(tre.sideC)
-tre.sideC = 100
+tre.sideC = 234
 log(tre.sideC)
