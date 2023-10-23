@@ -20,10 +20,15 @@ log(obj)
 
 let a = [3, 1, 5]
 log(a.reduce((acc, cur, ind) => {
-    field = ind.toString()
-    acc[field] = cur
+    // field = ind.toString()
+    acc[ind] = cur
     return acc // забыл написать return
 }, {}))
+
+// {
+//     "0": 3,
+
+// }
 
 /*
 reduce obj  

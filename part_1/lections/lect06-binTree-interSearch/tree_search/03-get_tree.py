@@ -17,19 +17,22 @@ def get_tree():
     return tree
 
 
-def find_in_tree(node, finder_elm):
+def search_in_tree(node, finder_elm):
     if node:  # node != None
         if finder_elm == node.key:
             return True
         elif finder_elm < node.key:
-            return find_in_tree(node.left, finder_elm)
+            return search_in_tree(node.left, finder_elm)
         else:
-            return find_in_tree(node.right, finder_elm)
+            return search_in_tree(node.right, finder_elm)
     else:
         return False
 
 
 tree = get_tree()  # [3, 4, 5, 7]
+# print(search_in_tree(tree, 8))
+# print(search_in_tree(tree, 5))
+
 check_elements = [3, 5, 8, 4, 7, 6, 2]
 for elm in check_elements:
-    print(f"elm = {elm} => {find_in_tree(tree, elm)}")
+    print(f"elm = {elm} => {search_in_tree(tree, elm)}")
