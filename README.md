@@ -11,10 +11,14 @@ Software Engineering Node.js 2023-2024
 > [Рейтинг группы ПИб-3](https://docs.google.com/spreadsheets/d/1j1WpSzuvWlR3ZLh-POSUbtCKAj3eKIIxafZi9TnP_vs/edit?usp=sharing)  
 > [Рейтинг группы ПИнб-3](https://docs.google.com/spreadsheets/d/1YuFZAn8Lwv4M4CD99i9K9V3dknu7iTdJAOZjwVSkzvU/edit?usp=sharing)  
 
-| семестр | Лекций | ЛабРаб | Отчётность |
+| семестр 1 | Лекций | ЛабРаб | Отчётность |
 | :-: | :-: | :-: | :-: |
-| 1 | 14 | 11 | Зачёт + КП |
-| 2 | 14 | 11 | Экзамен |
+| ПИнб-3 | 9 | 7 | Зачёт |
+| ПИб-3 | 12 | 8 | Зачёт |
+
+> Курсовой проект - REST-application  
+> Representational State Transfer API  
+> HTTP-методы: POST (create), GET (read), PUT (update), DELETE  
 
 ##### Что будем изучать:
 
