@@ -14,3 +14,5 @@ request.get(url, (error, response, data) => {
             .forEach(element => log(element))
     }
 })
+
+// https://api.openweathermap.org/data/2.5/onecall?lat=59.57&lon=30.19&exclude=hourly,minutely,alerts&units=metric&appid=9c9278b6ff53fc3ff704cedb3d0ad747
