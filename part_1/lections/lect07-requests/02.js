@@ -1,6 +1,6 @@
 const request = require('request')
 const log = console.log
-const url = 'https://pcoding.ru/csv/abiturs.json'
+const url = 'https://pcoding.ru/json/abiturs.json'
 
 const print_list = (arr) => {
     arr
