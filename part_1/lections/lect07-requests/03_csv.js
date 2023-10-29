@@ -1,18 +1,27 @@
-const request = require('request')
+const fs = require("fs");
 const log = console.log
 
-let url = 'https://pcoding.ru/csv/abiturs.csv'
 
-const print_list = (arr) => {
-    arr
-        .sort((a, b) => +a.split(',')[2] > +b.split(',')[2]? -1: +1)
+const processCSV = (data, sep=",", shift=0, column=0) => {
+    let lines = data
+        // .split("\n")
+        // .split(/\n/g)
+        // .split(/[\n|\r\n]/g)
+        // .split(/\r{0,1}\n/g)
+        .split(/\r?\n/g)
+        .slice(shift, )
+    lines
+        .map(line => line.split(sep)[1])
+        .sort((a,b) => a>b? +1: -1)
         .forEach(element => log(element))
 }
 
-request.get(url, (error, response, data) => {
-    if (!error && response.statusCode == 200) {
-        print_list(data.split(/\r?\n/).slice(1,))
-    } else {
-        log(error)
-    }
-})
+const ex_01 = () => {
+    let options = { encoding:"utf-8", flag: "r" }
+    fs.readFile("./data/abiturs.csv", options, (error, data) => {
+        if (error) throw error;
+        processCSV(data, ",", 1, 1)
+    })
+}
+
+ex_01()
