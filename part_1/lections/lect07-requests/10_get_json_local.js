@@ -1,4 +1,3 @@
-const data = require("./data/data.js")
 const { clients } = require("./data/clients.json")
 const log = console.log
 
@@ -20,13 +19,3 @@ clients
     })
     .sort((a, b) => a.age > b.age? +1: -1)
     .forEach(ob => log(JSON.stringify(ob, null, 4)))
-
-// log(data.colors[0])
-// log(data.argb[0])
-
-// log(
-//     data
-//         .argb[0]
-//         .slice(0, -1)
-//         .reduce((acc, cur) => acc + cur.toString(16), "")
-// )

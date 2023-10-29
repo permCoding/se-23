@@ -3,7 +3,7 @@
 
 const log = console.log
 
-const print_data = (json) => {
+const processData = (json) => {
     json
         .filter(x => x.city == "Кунгур")
         .sort((a, b) => a.rating > b.rating? -1: +1)
@@ -22,7 +22,7 @@ const ex_01 = (url) => {
         .then(res => res.json())
         .then(json => {
             // log(json)
-            print_data(json)
+            processData(json)
         })
         .catch(error => log(error.message))
 }
@@ -31,15 +31,17 @@ const ex_02 = async () => {
     let response = await fetch(url)
     if (!response.ok) { log(response.status); return }
     let json = await response.json()
-    print_data(json)
+    processData(json)
 }
 
 let url = 'https://pcoding.ru/json/abiturs.json'
 ex_01(url)
 
 /*
-задача
+задачи:  
 - вывести трёх первых по убыванию рейтинга из Кургура
 - если наверху есть несколько с одинаковым рейтингом
   то вывести всех, кто не хуже рейтинга третего места
+- как отсортировать по двум параметрам ?
+-- сначала по городу, и в городах - по имени
 */
