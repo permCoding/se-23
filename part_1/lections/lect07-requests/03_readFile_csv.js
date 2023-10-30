@@ -11,7 +11,7 @@ const processCSV = (data, sep=",", shift=0, column=0) => {
         .split(/\r?\n/g)
         .slice(shift, )
     lines
-        .map(line => line.split(sep)[1])
+        .map(line => line.split(sep)[column])
         .sort((a,b) => a>b? +1: -1)
         .forEach(element => log(element))
 }
