@@ -1,3 +1,4 @@
+const { time, timeEnd } = require("console");
 const fs = require("fs");
 const log = console.log
 
@@ -9,6 +10,10 @@ const processCSV = (data, sep=",", shift=0, column=0) => {
         // .split(/[\n|\r\n]/g)
         // .split(/\r{0,1}\n/g)
         .split(/\r?\n/g)
+
+        // .replace("\r", "")
+        // .split("\n")
+
         .slice(shift, )
     lines
         .map(line => line.split(sep)[column])
@@ -18,9 +23,11 @@ const processCSV = (data, sep=",", shift=0, column=0) => {
 
 const ex_01 = () => {
     let options = { encoding:"utf-8", flag: "r" }
-    fs.readFile("./data/abiturs.csv", options, (error, data) => {
+    fs.readFile("./data/abiturs_rn.csv", options, (error, data) => {
         if (error) throw error;
+        time("test");
         processCSV(data, ",", 1, 1)
+        timeEnd("test")
     })
 }
 
