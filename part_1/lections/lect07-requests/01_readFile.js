@@ -17,6 +17,14 @@ const ex_02 = () => {
 }
 
 const ex_03 = () => {
+    log(111111)
+    fs.readFile("./data/abiturs.csv", "utf-8", (error, data) => {
+        log(data)
+    })
+    setTimeout(() => log(999999), 1000) // 1000 ms => 1 sec
+}
+
+const ex_04 = () => {
     fs.readFile("./data/abiturs.csv", "utf-8" , (error, data) => {
         log(111111)
         log(data)
@@ -30,7 +38,7 @@ const processData = (data) => {
     log(999999)
 }
 
-const ex_04 = () => {
+const ex_05 = () => {
     let options = { encoding:"utf-8", flag: "r" }
     fs.readFile("./data/abiturs.csv", options, (error, data) => {
         if (error) throw error;
@@ -38,4 +46,4 @@ const ex_04 = () => {
     })
 }
 
-ex_04()
+ex_03()
