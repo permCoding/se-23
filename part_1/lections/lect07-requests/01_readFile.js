@@ -21,7 +21,8 @@ const ex_03 = () => {
     fs.readFile("./data/abiturs.csv", "utf-8", (error, data) => {
         log(data)
     })
-    setTimeout(() => log(999999), 1000) // 1000 ms => 1 sec
+    let pause = 1000 // 1000 ms => 1 sec
+    setTimeout(() => log(`999999\n==> pause = ${pause} ms`), pause)
 }
 
 const ex_04 = () => {
@@ -44,6 +45,35 @@ const ex_05 = () => {
         if (error) throw error;
         processData(data)
     })
+}
+
+const readFilePromise = (filename) => {
+    return new Promise((resolve, reject) => {
+        let options = { encoding:"utf-8", flag: "r" }
+        fs.readFile(filename, options, (error, data) => {
+            if (error) reject(error);
+            resolve(data)
+        })
+    })
+}
+
+const start = async (filename) => {
+    log("==> begin <==")
+    await readFilePromise(filename)
+        // .then(data => log(data)) // ver 1
+        // .then(data => processData(data)) // ver 2
+        .then(data => { // ver 3
+            let lines = data.split(/\r?\n/g)
+            return lines.slice(1,)
+        })
+        .then(data => processData(data)) // ver 3
+        .catch(error => log(error.message))
+    log("==>  end  <==")
+}
+
+const ex_06 = () => {
+    // start("./data/abi_turs.csv")
+    start("./data/abiturs.csv")
 }
 
 ex_03()
