@@ -24,5 +24,5 @@ const process = (url) => {
         .then(data => JSON.parse(data))
         .then(json => viewData(json))
         .catch(error => log(error.message))
-    log(444444)    
+    log(444444)
 })()

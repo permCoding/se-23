@@ -7,7 +7,7 @@ const process = () => {
         if (error) log(error)
         let json = JSON.parse(data)
         log(JSON.stringify(json, null, 2))    
-    })    
+    })
 }
 
 log(111111)
