@@ -7,7 +7,7 @@ const writeCSV = (data) => {
     let lines = data.split(/\r?\n/g).slice(1,)
 
     let result = []
-    for (let i=0; i<500000; i++) {
+    for (let i=0; i<800_000; i++) {
         result.push(lines[Math.floor(Math.random()*lines.length)])
     }
 
@@ -28,10 +28,10 @@ const processCSV = (data, shift=0) => {
         // .split(/\n/g)
         // .split(/\r\n/g)
         // .split(/\r{0,1}\n/g)
-        .split(/\r?\n/g) // 500_000 => 240 ms
+        // .split(/\r?\n/g) // 500_000 => 240 ms
 
-        // .replace("\r", "")
-        // .split("\n") // 500_000 => 320 ms
+        .replace("\r", "")
+        .split("\n") // 500_000 => 320 ms
     log(lines.length)
 }
 
