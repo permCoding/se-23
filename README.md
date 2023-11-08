@@ -6,7 +6,7 @@ Software Engineering Node.js 2023-2024
 
 > [Анкетирование и Тестирование - EXAM](http://exam.1gb.ru/)  
 
-> [Дистант | Программная инженерия - bbb](https://bbb.psaa.ru/rooms/4hq-uur-7nl-kgz/join)
+> [Дистант | Программная инженерия - bbb](https://bbb.psaa.ru/rooms/4hq-uur-7nl-kgz/join)  
 > [Дистант | Программная инженерия - bbb3](https://bbb3.psaa.ru/b/7rq-iir-muo-h58)  
 > [Дистант | Программная инженерия - bbb6](https://bbb6.psaa.ru/b/76k-oto-gpt-xpb)  
 > [Рейтинг группы ПИб-3](https://docs.google.com/spreadsheets/d/1j1WpSzuvWlR3ZLh-POSUbtCKAj3eKIIxafZi9TnP_vs/edit?usp=sharing)  
