@@ -1,5 +1,5 @@
 const request = require('sync-request') // npm i sync-request
-// https://github.com/ForbesLindesay/sync-request
+// https://www.npmjs.com/package/sync-request
 
 const get_lines_from_url = (url) => {
     let data = request("GET", url).getBody("utf8")
@@ -9,4 +9,4 @@ const get_lines_from_url = (url) => {
 url = "https://pcoding.ru/txt/labrab04-1.txt"
 lines = get_lines_from_url(url)
 // тут решение
-console.log(lines)
+console.log('вывод ответа')
