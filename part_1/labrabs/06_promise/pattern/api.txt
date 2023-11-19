@@ -1,0 +1,9 @@
+формат запроса:
+    http://localhost:3000?paramName=paramValue
+пример запроса:
+    http://localhost:3000/?field=id&direct=asc&limit=5
+
+- выдать данные, отсортированные:
+* field - по какому полю объекта
+* direct - в каком направлении
+* limit - ограничив количество

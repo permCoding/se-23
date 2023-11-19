@@ -9,12 +9,12 @@
 
 ---  
 
-#### 1 users.json
+#### 1 users.json - получить, преобразовать, сохранить  
 
 Данные находятся по адресу: http://files-pcoding.1gb.ru/json?filename=users.json  
 
 1) получить массив объектов  
-2) преобразовать объекты, выбрав поля id, name, phone, city  
+2) преобразовать объекты, выбрав поля id, name, phone, city:  
 ```js
 {
     "id": 1,
