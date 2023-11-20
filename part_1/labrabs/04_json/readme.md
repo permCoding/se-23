@@ -23,10 +23,11 @@
 Вам могут пригодиться эти методы:  
 
 ```js
-zip(), zipObject()  
 split(), slice(), map(), filter()  
 Object.keys(), Object.values()  
-sortBy(), orderBy()  
+_.sortBy(), _.orderBy()  
+_.zip(), _.zipObject()  
+_.pick(),  _.pickBy()  
 ```
 
 ---  
