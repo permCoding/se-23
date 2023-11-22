@@ -28,10 +28,10 @@ const processCSV = (data, shift=0) => {
         // .split(/\n/g)
         // .split(/\r\n/g)
         // .split(/\r{0,1}\n/g)
-        // .split(/\r?\n/g) // 500_000 => 240 ms
+        // .split(/\r?\n/g) // 800_000 => 600 ms
 
         .replace("\r", "")
-        .split("\n") // 500_000 => 320 ms
+        .split("\n") // 800_000 => 700 ms
     log(lines.length)
 }
 
