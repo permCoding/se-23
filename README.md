@@ -8,7 +8,6 @@ Software Engineering Node.js 2023-2024
 
 > [Дистант | Программная инженерия - bbb](https://bbb.psaa.ru/rooms/4hq-uur-7nl-kgz/join)  
 > [Дистант | Программная инженерия - bbb3](https://bbb3.psaa.ru/b/7rq-iir-muo-h58)  
-> [Дистант | Программная инженерия - bbb6](https://bbb6.psaa.ru/b/76k-oto-gpt-xpb)  
 > [Рейтинг группы ПИб-3](https://docs.google.com/spreadsheets/d/1j1WpSzuvWlR3ZLh-POSUbtCKAj3eKIIxafZi9TnP_vs/edit?usp=sharing)  
 > [Рейтинг группы ПИнб-3](https://docs.google.com/spreadsheets/d/1YuFZAn8Lwv4M4CD99i9K9V3dknu7iTdJAOZjwVSkzvU/edit?usp=sharing)  
 
@@ -18,7 +17,7 @@ Software Engineering Node.js 2023-2024
 | ПИб-3 | 12 | 8 | Зачёт |
 
 > Курсовой проект - REST-application  
-> Representational State Transfer API  
+> Representational State Transfer API (передача репрезентативных состояний)  
 > HTTP-методы: POST (create), GET (read), PUT (update), DELETE  
 
 ##### Что будем изучать:
@@ -32,8 +31,9 @@ Software Engineering Node.js 2023-2024
 
 ## docs  
 
-> [Стандарт языка JS](https://developer.mozilla.org/ru/docs/Web/JavaScript)  
-> [MDN Web Docs - Mozilla Developer Network](https://developer.mozilla.org/ru/docs/Learn/JavaScript)  
+> [ECMAScript 6 Edition - 2015](https://262.ecma-international.org/6.0/#sec-ecmascript-data-types-and-values)  
+> [Описание языка JS MDN - Mozilla Developer Network](https://developer.mozilla.org/ru/docs/Web/JavaScript)  
+> [Учебные материалы JS MDN - Mozilla Developer Network](https://developer.mozilla.org/ru/docs/Learn/JavaScript)  
 > [Функциональное программирование JS](https://pcoding.ru/pdf/jsFuncCoding.pdf)  
 > [Основы JS - браузер и консоль](https://pcoding.ru/pdf/jsManual.pdf)  
 > [rambda docs](https://ramdajs.com/docs/)  
@@ -67,7 +67,7 @@ npm install название-пакета  // установка пакетов
 npm i название-пакета  // можно сокращённо
 nvm use v14  // если несколько версий, то можно переключить
 автоотслеживание изменений в коде проекта:
-- можно испол модуль nodemon 
+- можно использовать модуль nodemon 
 - или вместо nodemon: node --watch index.is (работает с версии node 18.11.0)  
 - https://nodejs.org/dist/latest-v18.x/docs/api/cli.html#--watch
 - можно использ пути (на MacOS и Win): node --watch-=./tests --watch index.js
