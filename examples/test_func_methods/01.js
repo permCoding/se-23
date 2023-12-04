@@ -1,4 +1,4 @@
-"use strickt"
+"use strict"
 const { performance } = require('perf_hooks')
 
 const get_for_i = (arr, count) => {
