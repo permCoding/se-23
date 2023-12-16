@@ -4,7 +4,7 @@ const viewData = (json, limit) => {
     log(JSON.stringify(json.slice(0, limit), ["lastName"], 2))
 }
 
-const process = async (url) => {
+const processData = async (url) => {
     let options = {method: "GET", encoding: "utf8"}
     let response = await fetch(url, options)
     return await response.json()
@@ -12,7 +12,7 @@ const process = async (url) => {
 
 const main = async () => {
     log(111111)
-    let json = await process('https://pcoding.ru/json/abiturs.json')
+    let json = await processData('https://pcoding.ru/json/abiturs.json')
     viewData(json, 5)
     log(222222)
 }

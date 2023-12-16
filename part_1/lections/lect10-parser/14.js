@@ -4,7 +4,7 @@ const viewData = (json) => {
     log(JSON.stringify(json, ["lastName"], 2))
 }
 
-const process = async () => {
+const processData = async () => {
     let url = 'https://pcoding.ru/json/abiturs.json'
     let options = {method: "GET", encoding: "utf8"}
     let response = await fetch(url, options)
@@ -15,5 +15,5 @@ const process = async () => {
 }
 
 log(111111)
-process()
+processData()
 log(222222) // не будет ждать окончания

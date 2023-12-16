@@ -1,7 +1,7 @@
 const axios = require('axios') // npm i axios
 const log = console.log
 
-const process = async (url) => { // работает синхронно
+const processData = async (url) => { // работает синхронно
     log('==> the begin <==')
 
     try {
@@ -18,4 +18,4 @@ const process = async (url) => { // работает синхронно
     log('==>  the end  <==')
 }
 
-process('https://pcoding.ru/json/abiturs.json')
+processData('https://pcoding.ru/json/abiturs.json')

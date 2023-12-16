@@ -1,7 +1,7 @@
 const request = require('request')
 const log = console.log
 
-const process = () => {
+const processData = () => {
     let url = 'https://pcoding.ru/json/abiturs.json'
     request.get({url: url, encoding: "utf8"}, (error, response, data) => {
         if (error) log(error)
@@ -11,5 +11,5 @@ const process = () => {
 }
 
 log(111111)
-process()
+processData()
 log(222222)

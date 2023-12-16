@@ -8,7 +8,7 @@ const viewData = (json) => {
     log(222222)
 }
 
-const process = (url) => {
+const processData = (url) => {
     return new Promise((resolve, reject) => {
         request.get(url, (error, response, data) => {
             if (error) reject(error) // return catch
@@ -19,7 +19,7 @@ const process = (url) => {
 
 const start = async (url) => {
     log(333333)
-    await process(url)
+    await processData(url)
         .then(data => JSON.parse(data))
         .then(json => viewData(json))
         .catch(error => log(error.message))

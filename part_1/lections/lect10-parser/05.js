@@ -8,7 +8,7 @@ const viewData = (json) => {
     log(222222)
 }
 
-const process = () => {
+const processData = () => {
     let url = 'https://pcoding.ru/json/abiturs.json'
     request.get({url: url, encoding: "utf8"}, (error, response, data) => {
         if (error) log(error)
@@ -17,4 +17,4 @@ const process = () => {
     })
 }
 
-process()
+processData()

@@ -8,7 +8,7 @@ const viewData = (json) => {
     log(JSON.stringify(json, ["lastName","rating"], 2))
 }
 
-const process = (url) => {
+const processData = (url) => {
     return new Promise((resolve, reject) => {
         request.get(url, (error, response, data) => {
             if (error) reject(error) // return catch
@@ -20,7 +20,7 @@ const process = (url) => {
 (async () => {
     let url = 'https://pcoding.ru/json/abiturs.json'
     log(333333)
-    await process(url)
+    await processData(url)
         .then(data => JSON.parse(data))
         .then(json => viewData(json))
         .catch(error => log(error.message))
