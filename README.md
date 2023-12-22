@@ -40,6 +40,8 @@ Software Engineering Node.js 2023-2024
 > [rambda examples](https://examplejavascript.com/ramda/)  
 > [lodash.com/docs](https://lodash.com/docs/)  
 > [docs-lodash.com](https://docs-lodash.com/v4/)  
+> [unicode](https://compart.com/en/unicode/block/U+0400)  
+> [html-symbols](https://compart.com/en/unicode/html)  
 
 ## install  
 
