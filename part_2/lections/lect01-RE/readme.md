@@ -57,4 +57,6 @@ x(?!y) НЕ захватываем y в результат и ПОСЛЕ x НЕ 
 
 ```
 
+классы в re: https://javascript.info/regexp-unicode  
+
 ---  
