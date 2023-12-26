@@ -84,3 +84,17 @@ PATCH version -- when you make backwards-compatible bug fixes.
 ```
 
 > [Про разметку md](https://github.com/sandino/Markdown-Cheatsheet/blob/master/README.md)  
+
+```js
+// JS DOCs
+
+/**
+ * @param {number} n
+ * @return {Function} counter
+ */
+const createCounter = (n) => {
+    return () => {
+        return n++; // postfix ++
+    }
+}
+```

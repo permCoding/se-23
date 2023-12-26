@@ -9,6 +9,7 @@ const createCounter = (n) => {
 }
 
 const counter = createCounter(10)
-for (let r of [1,2,3,4,5]) {
+
+for (let _ of [1,2,3,4,5]) {
     console.log(counter())
 }
