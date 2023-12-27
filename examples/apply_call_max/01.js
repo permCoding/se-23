@@ -1,3 +1,4 @@
+// статья про this - https://habr.com/ru/articles/464163/
 const log = console.log
 
 const ex_01 = () => {
@@ -10,6 +11,7 @@ const ex_01 = () => {
 }
 
 const ex_02 = () => {
+    // у обычной функции есть this
     const func = function () { // NOT arrow function
         log(JSON.stringify(this, null, 4))
     }
@@ -25,9 +27,31 @@ const ex_03 = () => {
 
     let obj = { 'id': 1, 'rate': 188 }
     let arr = [10, 20]
-    func.apply(obj, arr)
-    func.call(obj, ...arr)
-    func.call(obj, 10, 20)
+    func.apply(obj, arr) // с массивом
+    func.call(obj, ...arr) // со значениями
+    func.call(obj, 10, 20) // со значениями
 }
 
-ex_03()
+const ex_04 = () => {
+    const obj1 = {
+        a: 100,
+        show: function (k) {
+            log(this.a*k)
+        }
+    }
+    obj1.show(2)
+
+    const obj2 = {
+        a: 250,
+        k: 3
+    }
+
+    obj1.show.apply(obj2, [2]) // с массивом
+    obj1.show.call(obj2, 2) // с перечислением
+
+    const newShow = obj1.show.bind(obj2) // создать новую функцию
+    newShow([4])
+}
+
+// ex_03()
+ex_04()
