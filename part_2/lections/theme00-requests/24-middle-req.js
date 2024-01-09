@@ -8,6 +8,16 @@ var abiturs = require('./json/abiturs.json');
 
 app.use(express.json()); // обязательно добавить для распознавания объектов
 
+const middleFunction = (req, res, next) => {
+    let params = req.params;
+    let id = +params.id;
+    if (isNaN(id)) return res.sendStatus(400);
+    let idFind = abiturs.findIndex(x => x.id == id);
+    if (idFind === -1) return res.sendStatus(404);
+    req.id = idFind;
+    next();
+} // middleWare - можно добавить к запросу 
+
 app.get('/', (req, res) => res.send('/') );
 
 app.get('/abiturs', (req, res) => res.json(abiturs) );
@@ -18,34 +28,24 @@ app.post('/abiturs', (req, res) => { // http://localhost:3000/abiturs
     res.json(abiturs);
 });
 
-app.put('/abiturs/:id', (req, res) => { // http://localhost:3000/abiturs/20
-    let params = req.params, newObj = req.body;
-    let id = +params.id;
-    if (isNaN(id)) return res.status(400).end();
-    let idUpdate = abiturs.findIndex(x => x.id == id);
-    abiturs[idUpdate] = { id, ...newObj };
-    res.json(abiturs);
+app.get('/abiturs/:id', middleFunction, (req, res) => {
+    res.json(abiturs[req.id]);
 });
 
-app.patch('/abiturs/:id', (req, res) => { // http://localhost:3000/abiturs/20
-    let params = req.params, partialObj = req.body;
-    let id = +params.id;
-    if (isNaN(id)) return res.status(400).end();
-    let idUpdate = abiturs.findIndex(x => x.id == id);
-    
-    // abiturs[idUpdate] = { ...abiturs[idUpdate], ...partialObj }; // ver1
-    abiturs[idUpdate] = Object.assign(abiturs[idUpdate], partialObj) // ver2
-    
-    res.json(abiturs);
+app.put('/abiturs/:id', middleFunction, (req, res) => { // http://localhost:3000/abiturs/20
+    let { id, body } = req; // let body = req.body, id = req.id;
+    abiturs[id] = { id, ...body };
+    res.json(abiturs); // для контроля
 });
 
-app.delete('/abiturs/:id', (req, res) => { // http://localhost:3000/abiturs/20
-    let params = req.params;
-    let id = +params.id;
-    if (isNaN(id)) return res.status(400).end();
-    let idDelete = abiturs.findIndex(x => x.id == id);
-    if (idDelete === -1) return res.sendStatus(404); // .status(404).end()
-    abiturs.splice(idDelete, 1);
+app.patch('/abiturs/:id', middleFunction, (req, res) => { // http://localhost:3000/abiturs/20
+    let { id, body } = req;
+    abiturs[id] = { ...abiturs[id], ...body };
+    res.json(abiturs); // для контроля
+});
+
+app.delete('/abiturs/:id', middleFunction, (req, res) => { // http://localhost:3000/abiturs/20
+    abiturs.splice(req.id, 1);
     res.json(abiturs);
 });
 

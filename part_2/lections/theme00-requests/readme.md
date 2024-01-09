@@ -1,7 +1,11 @@
 # requests  
 
-Thunder client  
+https://ru.wikipedia.org/wiki/список_кодов_состояния_HTTP  
+
+где можно тестировать:  
+Thunder client (VSCode)  
 Browser  
+PostMan  
 
 ---  
 

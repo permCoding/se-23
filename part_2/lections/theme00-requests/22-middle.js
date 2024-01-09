@@ -8,6 +8,11 @@ var abiturs = require('./json/abiturs.json');
 
 app.use(express.json()); // обязательно добавить для распознавания объектов
 
+const middleFunction = (req, res, next) => {
+    log(`${req.method}; ${req.url}; ${JSON.stringify(req.params)}`);
+    next();
+} // middleWare - будем использовать избирательно
+
 app.get('/', (req, res) => res.send('/') );
 
 app.get('/abiturs', (req, res) => res.json(abiturs) );
@@ -39,7 +44,8 @@ app.patch('/abiturs/:id', (req, res) => { // http://localhost:3000/abiturs/20
     res.json(abiturs);
 });
 
-app.delete('/abiturs/:id', (req, res) => { // http://localhost:3000/abiturs/20
+// middleWare - можно использовать избирательно
+app.delete('/abiturs/:id', middleFunction, (req, res) => { // http://localhost:3000/abiturs/20
     let params = req.params;
     let id = +params.id;
     if (isNaN(id)) return res.status(400).end();

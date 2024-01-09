@@ -10,7 +10,14 @@ app.use(express.json()); // обязательно добавить для ра�
 
 app.get('/', (req, res) => res.send('/') );
 
-app.get('/abiturs', (req, res) => res.json(abiturs) );
+// middleWare - можно объявлять множественно и непосредственно по месту в виде анонимов
+app.get('/abiturs', 
+    (req, res, next) => { next(); },
+    (req, res, next) => { log(`${req.method};`); next(); },
+    (req, res, next) => { log(`${req.url}`); next(); },
+    (req, res, next) => { log(`${JSON.stringify(req.params)}`); next(); },
+    (req, res) => res.json(abiturs) 
+);
 
 app.post('/abiturs', (req, res) => { // http://localhost:3000/abiturs
     let id = abiturs.at(-1).id + 1;

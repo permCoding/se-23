@@ -8,6 +8,13 @@ var abiturs = require('./json/abiturs.json');
 
 app.use(express.json()); // обязательно добавить для распознавания объектов
 
+const middleFunction = (req, res, next) => {
+    log(`${req.method}; ${req.url}`);
+    next();
+}
+
+app.use(middleFunction); // использовать при каждом запросе
+
 app.get('/', (req, res) => res.send('/') );
 
 app.get('/abiturs', (req, res) => res.json(abiturs) );
