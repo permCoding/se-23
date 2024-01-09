@@ -9,6 +9,8 @@ PostMan
 
 ---  
 
+https://developer.mozilla.org/ru/docs/Web/HTTP/Methods  
+
 Get Requests
 Route Params
 Query Params
@@ -22,3 +24,9 @@ Delete Requests
 Middleware
 
 ---  
+
+validator  
+https://express-validator.github.io/docs/  
+
+---  
+
