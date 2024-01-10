@@ -30,3 +30,7 @@ https://express-validator.github.io/docs/
 
 ---  
 
+cookies  
+F12 / Dev Panel / Application / Cookies  
+
+---  
