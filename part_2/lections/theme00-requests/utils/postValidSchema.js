@@ -20,7 +20,7 @@ const postValidSchema = {
             errorMessage: 'гендер только 0 или 1',
         }
     },
-    birthDay: { 
+    birthDate: { 
         notEmpty: { errorMessage: 'не может быть пустым' },
         isDate: true, errorMessage: 'нужен формат даты'
     },

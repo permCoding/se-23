@@ -34,7 +34,8 @@ app.post('/abiturs',
 
         abiturs.push( { id, ...data } ); // добавляемый объект
         res.json(abiturs);
-});
+    }
+);
 
 // http://localhost:3000/abiturs?city=Кунгур
 app.get('/abiturs', 
@@ -57,7 +58,8 @@ app.get('/abiturs',
             let abiturs = require('./json/abiturs.json');
             res.json(abiturs.filter(x => x.city == city));    
         }
-});
+    }
+);
 
 app.listen(PORT, HOST, () => log(`http://${HOST}:${PORT}/`));
 
