@@ -24,6 +24,11 @@ td {
     vertical-align: middle;
     margin: auto;
 }
+td.id {
+    height: 36px;
+    font-weight: bolder;
+    color: darkgreen;
+}
 td.item {
     height: 36px;
     text-align: left;
