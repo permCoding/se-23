@@ -1,0 +1,8 @@
+📌 5 ключевых компонентов SQL:
+
+🔹DDL: data definition language
+🔹DQL: data query language
+🔹DML: data manipulation language
+🔹DCL: data control language
+🔹TCL: transaction control language
+
