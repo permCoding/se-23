@@ -1,8 +1,8 @@
 # part2  
 
-```
-themes  
+## themes  
 
+```
 express
 Requests + Middleware
 Validation
@@ -24,3 +24,10 @@ RE + Parsing
 app.use(require('express-status-monitor')());
 ```
 
+```
+browser / Sourses / Snippets / New Snippet
+```
+
+[fetch](https://proghunter.ru/articles/fetch-requests-in-javascript-syntax-and-examples)  
+
+---  

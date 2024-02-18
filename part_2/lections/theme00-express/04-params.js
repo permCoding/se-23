@@ -20,13 +20,15 @@ app.get('/abiturs/limit/:count', (req, res) => { // http://localhost:3000/limit/
     res.json(abiturs.slice(0, count));
 });
 
-app.get('/abiturs/query', (req, res) => { // http://localhost:3000/query?city=Пермь
+app.get('/abiturs/query', (req, res) => {
     let params = req.params; log(params);
     let query = req.query; log(query);
     let { city } = query;
     let abiturs = require('./json/abiturs.json');
     res.json(abiturs.filter(x => x.city === city));
 });
+// http://localhost:3000/query?city=Пермь
+// http://localhost:3000/abiturs/query?city=Оса&gender=1
 
 app.get('/error', (req, res) => {
     log('error')

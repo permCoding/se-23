@@ -22,10 +22,8 @@ app.get('/abiturs', (req, res) => {
     }
 });
 
-// http://localhost:3000/abiturs
-// http://localhost:3000/abiturs?fieldA=valueA
-// http://localhost:3000/abiturs?fieldA=valueA&fieldB=valueB
 // http://localhost:3000/abitursMany?city=Кунгур&gender=0
+// http://localhost:3000/abitursMany?city=Кунгур&gender=1&rating=196
 app.get('/abitursMany', (req, res) => {
     let query = req.query; log(query);
     let pairs = Object.entries(query); log(pairs);
@@ -35,7 +33,7 @@ app.get('/abitursMany', (req, res) => {
     if (pairs.length < 1) {
         res.json(abiturs);
     } else {
-        res.json(abiturs
+        res.json(abiturs // /abitursMany?city=Кунгур&gender=0
             .filter(x => pairs.every(pair => x[pair[0]] == pair[1]))
         );
     }
