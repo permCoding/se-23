@@ -4,14 +4,16 @@ const printData = (filtred) => {
     )
 }
 
+const callback = (error, response, data) => {
+    if (!error && response.statusCode == 200) {
+        let filtred = JSON.parse(data).filter(x => x.completed);
+        printData(filtred);
+    }
+}
+
 const ex_01 = (url) => {
     const request = require('request') // npm i request
-    request.get(url, (error, response, data) => {
-        if (!error && response.statusCode == 200) {
-            let filtred = JSON.parse(data).filter(x => x.completed);
-            printData(filtred);
-        }
-    })
+    request.get(url, callback)
 }
 
 const ex_02 = (url) => {
@@ -36,6 +38,6 @@ const ex_03 = () => {
 
 console.clear()
 let url = 'https://jsonplaceholder.typicode.com/todos/';
-// ex_01(url);
+ex_01(url);
 // ex_02(url);
-ex_03();
+// ex_03();

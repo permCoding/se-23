@@ -21,6 +21,7 @@ html = """
 """
 
 @app.route('/')
+@app.route('/index')
 def print_flask():
     return html
 
