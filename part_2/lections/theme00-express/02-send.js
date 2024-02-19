@@ -3,7 +3,7 @@ const express = require('express'),
     HOST = 'localhost'
     PORT = 3000,
     log = console.log,
-    callbackGet = (req, resp) => { resp.send('callbackGet') },
+    callbackGet = (req, resp) => { resp.send('callback\nGet') },
     callbackListen = () => { log(`http://${HOST}:${PORT}/`) }
 
 app.get('/', callbackGet);
