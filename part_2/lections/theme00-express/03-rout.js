@@ -19,7 +19,7 @@ app.get('/html', (req, res) => {
     let html = '- 111<br>- 222<br>- 333<br>- 444<br>';
     res.send(html);
 });
-
+// - - - - - показать как убивать процессы - - - - - 
 app.get('/json', (req, res) => {
     log(req.url.split('/'))
     res.set('Content-Type', 'text/plain');

@@ -6,6 +6,14 @@ const express = require('express'),
 
 app.get('/', (req, res) => { res.send('/') });
 
+app.get('/abiturs/query', (req, res) => {
+    let params = req.params; log(params);
+    let query = req.query; log(query);
+    let { city } = query;
+    let abiturs = require('./json/abiturs.json');
+    res.json(abiturs.filter(x => x.city === city));
+}); // http://localhost:3000/abiturs/query?city=Оса&gender=1
+
 // http://localhost:3000/abiturs
 // http://localhost:3000/abiturs?city=Пермь
 // http://localhost:3000/abiturs?city=Пермь&gender=1
