@@ -8,9 +8,9 @@ app.get('/', (req, res) => {
     res.send('/')
 });
 
-app.get('/txt', (req, res) => {
+app.get(['/txt','/text'], (req, res) => {
     res.set('Content-Type', 'text/plain');
-    let txt = '- 111\n- 222\n- 333\n- 444\n';
+    let txt = `${req.url}\n- 111\n- 222\n- 333\n- 444\n`;
     res.send(txt)
 });
 
@@ -21,12 +21,14 @@ app.get('/html', (req, res) => {
 });
 
 app.get('/json', (req, res) => {
+    log(req.url.split('/'))
     res.set('Content-Type', 'text/plain');
     let obj = { id: 101, user: 'solver' };
     res.send(JSON.stringify(obj, null, 4));
 });
 
-app.get('/json2', (req, res) => {
+app.get('/json/:num', (req, res) => {
+    log(req.url.split('/'))
     let obj = { id: 202, user: 'answer' };
     res.json(obj);
 });
