@@ -1,11 +1,11 @@
 const express = require('express'),
     app = express(),
     HOST = 'localhost'
-    PORT = 3000,
-    log = console.log;
+    PORT = 3000;
 
 const { writeFileSync } = require('fs');
 var abiturs = require('./json/abiturs.json');
+const { log } = require('console');
 
 app.use(express.json()); // обязательно добавить для распознавания объектов
 
@@ -29,7 +29,7 @@ app.put('/abiturs/:id', (req, res) => { // http://localhost:3000/abiturs/20
 });
 
 app.patch('/abiturs/:id', (req, res) => { // http://localhost:3000/abiturs/20
-    let params = req.params, partialObj = req.body;
+    let params = req.params, partialObj = req.body; console.log(partialObj);
     let id = +params.id;
     if (isNaN(id)) return res.status(400).end();
     let idUpdate = abiturs.findIndex(x => x.id == id);
@@ -57,7 +57,7 @@ app.delete('/abiturs/save/:id', (req, res) => { // http://localhost:3000/abiturs
     let idDelete = abiturs.findIndex(x => x.id == id);
     if (idDelete === -1) return res.sendStatus(404); // .status(404).end()
     abiturs.splice(idDelete, 1);
-    log(JSON.stringify(abiturs, null, 4));
+    console.log(JSON.stringify(abiturs, null, 4));
     writeFileSync(
         './json/abiturs.json', 
         JSON.stringify(abiturs, null, 4), {encoding: 'utf8'}

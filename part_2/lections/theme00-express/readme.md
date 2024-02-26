@@ -50,18 +50,24 @@ F12 / Dev Panel / Application / Cookies
 
 ```js
 const log = console.log; 
-const jsonData = pm.response.json(); 
- 
-pm.test("test_", function () { 
-    let limit = 100_000; 
-    let new_json = jsonData.filter(obj => obj.number < limit); 
-    log(new_json); 
- 
-    let numbers = JSON.parse(JSON.stringify(jsonData,['number'])); 
-    numbers 
-        .sort((a,b) => a.number-b.number) 
-        .forEach(obj => log(obj.number)); 
- 
+const jsonData = pm.response.json();
+let limit_ball = 198;
+log(`limit_ball = ${limit_ball}`);
+
+pm.test("test_", () => {
+   
+    let filtered = jsonData
+        .filter(obj => obj.rating >= limit_ball)
+        .sort((a,b) => a.rating-b.rating);
+
+    log(
+        JSON.stringify(
+            filtered, 
+            ['lastName','rating'], 
+            4
+        )
+    );
+
     pm.response.to.have.status(200); 
 });
 ```
