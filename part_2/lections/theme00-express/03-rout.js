@@ -5,7 +5,7 @@ const express = require('express'),
     log = console.log
 
 app.get('/', (req, res) => {
-    res.send('/')
+    res.send('/===============')
 });
 
 app.get(['/txt','/text'], (req, res) => {
