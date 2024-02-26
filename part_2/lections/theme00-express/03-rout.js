@@ -27,8 +27,8 @@ app.get('/json', (req, res) => {
     res.send(JSON.stringify(obj, null, 4));
 });
 
-app.get('/json/:num', (req, res) => {
-    log(req.url.split('/'))
+app.get('/json/:num', (req, res) => { // /json/202
+    log(req.url.split('/'));
     let obj = { id: 202, user: 'answer' };
     res.json(obj);
 });
