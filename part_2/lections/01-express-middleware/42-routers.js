@@ -1,9 +1,9 @@
 const express = require('express'), app = express();
-
 const { host, port } = require('./config.json');
 
-const router = require('./routes/abiturs-2.js');
+app.use(express.json());
 
-app.use(router);
+app.use('/abiturs', require('./routes/abiturs.js'));
+app.use(['/users', '/'], require('./routes/index.js'));
 
 app.listen(port, host, () => console.log(`http://${host}:${port}/`));

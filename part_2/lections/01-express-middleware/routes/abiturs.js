@@ -87,4 +87,4 @@ router.get('/:id', // http://localhost:3000/abiturs/19
     }
 );
 
-module.exports = router
+module.exports = router;
