@@ -9,7 +9,7 @@ var abiturs = require('./json/abiturs.json');
 app.use(express.json()); // обязательно добавить для распознавания объектов
 
 const middleFunction = (req, res, next) => {
-    log(`${req.method}; ${req.url}`);
+    log(`${req.method}; ${req.url}`); // вести логирование
     next();
 }
 
@@ -55,6 +55,33 @@ app.delete('/abiturs/:id', (req, res) => { // http://localhost:3000/abiturs/20
     abiturs.splice(idDelete, 1);
     res.json(abiturs);
 });
+
+const htmlError = `
+<style>
+    .error {
+        font-size: 44px;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #567572;
+        background: #567572;
+        background-size: 25%;
+        background-repeat: no-repeat;
+    }
+</style>
+<div class='error'> Error 404 </div>
+`
+
+app.get('/error', (req, res) => {
+    log('error = 404'); // res.status(404).end(); // res.status(404);
+    res.status(404).send(htmlError);
+});
+
+// app.get('/*', (req, res) => res.redirect('/error')); // v1
+
+app.use((req, res) => res.redirect('/error')); // v2
 
 app.listen(PORT, HOST, () => log(`http://${HOST}:${PORT}/`));
 

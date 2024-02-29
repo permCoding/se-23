@@ -5,11 +5,12 @@ const express = require('express'),
 
 const { writeFileSync } = require('fs');
 var abiturs = require('./json/abiturs.json');
-const { log } = require('console');
+const { log } = require('console'); // https://nodejs.org/api/console.html
 
-app.use(express.json()); // обязательно добавить для распознавания объектов
+// это уже middleware
+app.use(express.json()); // для распознавания объектов в post put patch
 
-app.get('/', (req, res) => res.send('/') );
+app.get('/', (req, res) => res.send('/'));
 
 app.get('/abiturs', (req, res) => res.json(abiturs) );
 

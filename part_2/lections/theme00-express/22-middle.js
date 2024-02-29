@@ -6,6 +6,7 @@ const express = require('express'),
 
 var abiturs = require('./json/abiturs.json');
 
+// l
 app.use(express.json()); // обязательно добавить для распознавания объектов
 
 const middleFunction = (req, res, next) => {
