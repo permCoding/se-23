@@ -1,69 +1,68 @@
 const express = require('express'),
     app = express(),
     HOST = 'localhost'
-    PORT = 3000;
+    PORT = 3000,
+    { log } = require('console'), // https://nodejs.org/api/console.html
+    { writeFile } = require('fs'), // async
+    decache = require('decache'), // для отмены кэширования json
+    filename = './json/abiturs.json',
+    abiturs = require(filename),
+    idUpdate = null; // нашли индекс в массиве
 
-const { writeFileSync } = require('fs');
-var abiturs = require('./json/abiturs.json');
-const { log } = require('console'); // https://nodejs.org/api/console.html
+// app.disable('x-powered-by'); // отключить заголовки ответа
 
-// это уже middleware
 app.use(express.json()); // для распознавания объектов в post put patch
 
-app.get('/', (req, res) => res.send('/'));
+app.use((req, res, next) => { // middleware
+    decache('./json/abiturs.json'); // отключаем кеширование для файла
+    abiturs = require('./json/abiturs.json');
+    next();
+});
 
-app.get('/abiturs', (req, res) => res.json(abiturs) );
+const checkId = (req) => {
+    // log(JSON.stringify(req.headers, null, 4)); // запраш язык страницы
+    const methods = ['PUT', 'PATCH', 'DELETE']; 
+    if (methods.includes(req.method)) {
+        log(req.method, req.params);
+        if ((req.params.id === undefined) || (isNaN(req.params.id))) { 
+            res.status(400).end();
+        }
+        idUpdate = abiturs.findIndex(x => x.id == req.params.id);
+        if (idUpdate === -1) return res.status(404).end(); // sendStatus(404)
+    } 
+    return true;
+}
+
+app.get(['/abiturs','/'], (req, res) => res.json(abiturs) );
 
 app.post('/abiturs', (req, res) => { // http://localhost:3000/abiturs
-    let id = abiturs.at(-1).id + 1;
+    let id = +abiturs.at(-1).id + 1;
     abiturs.push( { id, ...req.body } ); // добавляемый объект берём из body
     res.json(abiturs);
 });
 
 app.put('/abiturs/:id', (req, res) => { // http://localhost:3000/abiturs/20
-    let params = req.params, newObj = req.body;
-    let id = +params.id;
-    if (isNaN(id)) return res.status(400).end();
-    let idUpdate = abiturs.findIndex(x => x.id == id);
-    abiturs[idUpdate] = { id, ...newObj };
+    if (checkId(req)) { abiturs[idUpdate] = req.body }
     res.json(abiturs);
 });
 
 app.patch('/abiturs/:id', (req, res) => { // http://localhost:3000/abiturs/20
-    let params = req.params, partialObj = req.body; console.log(partialObj);
-    let id = +params.id;
-    if (isNaN(id)) return res.status(400).end();
-    let idUpdate = abiturs.findIndex(x => x.id == id);
-    
-    // abiturs[idUpdate] = { ...abiturs[idUpdate], ...partialObj }; // ver1
-    abiturs[idUpdate] = Object.assign(abiturs[idUpdate], partialObj) // ver2
-    
+    if (checkId(req)) { 
+        // abiturs[idUpdate] = { ...abiturs[idUpdate], ...req.body }; // ver1
+        abiturs[idUpdate] = Object.assign(abiturs[idUpdate], req.body) // ver2
+    }
     res.json(abiturs);
 });
 
 app.delete('/abiturs/:id', (req, res) => { // http://localhost:3000/abiturs/20
-    let params = req.params;
-    let id = +params.id;
-    if (isNaN(id)) return res.status(400).end();
-    let idDelete = abiturs.findIndex(x => x.id == id);
-    if (idDelete === -1) return res.sendStatus(404); // .status(404).end()
-    abiturs.splice(idDelete, 1);
+    if (checkId(req)) { abiturs.splice(idUpdate, 1) }
     res.json(abiturs);
 });
 
 app.delete('/abiturs/save/:id', (req, res) => { // http://localhost:3000/abiturs/20
-    let params = req.params;
-    let id = +params.id;
-    if (isNaN(id)) return res.status(400).end();
-    let idDelete = abiturs.findIndex(x => x.id == id);
-    if (idDelete === -1) return res.sendStatus(404); // .status(404).end()
-    abiturs.splice(idDelete, 1);
-    console.log(JSON.stringify(abiturs, null, 4));
-    writeFileSync(
-        './json/abiturs.json', 
-        JSON.stringify(abiturs, null, 4), {encoding: 'utf8'}
-    );
-    res.json(abiturs);
+    if (checkId(req)) { abiturs.splice(idUpdate, 1) }
+    let jsonStr = JSON.stringify(abiturs, null, 4);
+    writeFile(filename, jsonStr, 'utf8', () => res.json(abiturs));
 });
 
 app.listen(PORT, HOST, () => log(`http://${HOST}:${PORT}/`));

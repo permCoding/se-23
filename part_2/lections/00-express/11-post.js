@@ -7,7 +7,10 @@ const express = require('express'),
     { writeFileSync, writeFile } = require('fs'), // для записи в json
     decache = require('decache'); // для отмены кэширования json
 
+app.disable('x-powered-by'); // отключить заголовки ответа
+
 app.use((req, res, next) => { // middleware
+    log(JSON.stringify(req.headers, null, 4)); // запраш язык страницы
     decache('./json/abiturs.json'); // отключаем кеширование для файла
     abiturs = require('./json/abiturs.json');
     next();
