@@ -35,10 +35,21 @@ const checkId = (req) => {
 
 app.get(['/abiturs','/'], (req, res) => res.json(abiturs) );
 
-app.post('/abiturs', (req, res) => { // http://localhost:3000/abiturs
+// http://localhost:3000/abiturs
+// http://[::1]:3000/abiturs
+app.post('/abiturs', (req, res) => {
     let id = +abiturs.at(-1).id + 1;
     abiturs.push( { id, ...req.body } ); // добавляемый объект берём из body
     res.json(abiturs);
+});
+
+// http://localhost:3000/abiturs/save/
+// http://[::1]:3000/abiturs/save/
+app.post('/abiturs/save/', (req, res) => {
+    let id = +abiturs.at(-1).id + 1;
+    abiturs.push( { id, ...req.body } ); // добавляемый объект берём из body
+    let jsonStr = JSON.stringify(abiturs, null, 4);
+    writeFile(filename, jsonStr, 'utf8', () => res.json(abiturs));
 });
 
 app.put('/abiturs/:id', (req, res) => { // http://localhost:3000/abiturs/20

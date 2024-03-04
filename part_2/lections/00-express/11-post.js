@@ -22,6 +22,8 @@ app.get('/', (req, res) => res.send('/ = = = = ') );
 
 app.get('/abiturs', (req, res) => res.json(abiturs) );
 
+// http://localhost:3000/abiturs
+// http://[::1]:3000/abiturs
 app.post('/abiturs', (req, res) => { // http://localhost:3000/abiturs
     log(req.body); // проверить через POSTMAN или Thunder Client
     res.status(201).end();
@@ -46,7 +48,11 @@ app.post('/abitursSave', (req, res) => { // http://localhost:3000/abitursSave
     abiturs.push(req.body);
     let filename = './json/abiturs.json';
     let jsonStr = JSON.stringify(abiturs, null, 4);
-    writeFile(filename, jsonStr, 'utf8', () => res.json(abiturs));
+    writeFile(filename, jsonStr, 'utf8', () => {
+        //
+        //
+        res.json(abiturs);
+    });
 });
 
 app.listen(PORT, HOST, () => log(`http://${HOST}:${PORT}/`));
