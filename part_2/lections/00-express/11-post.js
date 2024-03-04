@@ -53,6 +53,7 @@ app.post('/abitursSave', (req, res) => { // http://localhost:3000/abitursSave
         //
         res.json(abiturs);
     });
+    // cmd
 });
 
 app.listen(PORT, HOST, () => log(`http://${HOST}:${PORT}/`));

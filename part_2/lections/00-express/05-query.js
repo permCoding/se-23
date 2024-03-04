@@ -13,6 +13,7 @@ app.get('/abiturs/query', (req, res) => {
     let city = query.city;
     let abiturs = require('./json/abiturs.json');
     res.json(abiturs.filter(x => x.city === city));
+    // res.send(JSON.stringify(abiturs.filter(x => x.city === city), null, 4));
 }); // http://localhost:3000/abiturs/query?city=Оса&gender=1
 
 /**
@@ -29,9 +30,11 @@ app.get('/abiturs', (req, res) => {
     if (!city && gender) res.json(abiturs.filter(x => x.gender == gender));
     if (city && !gender) res.json(abiturs.filter(x => x.city == city));
     if (city && gender) res.json(
+        // abiturs
+        //     .filter(x => x.city == city)
+        //     .filter(x => x.gender == gender)
         abiturs
-            .filter(x => x.city == city)
-            .filter(x => x.gender == gender)
+            .filter(x => ((x.city == city) && (x.gender == gender)) )
     );
 });
 
