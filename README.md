@@ -127,3 +127,18 @@ npx kill-port 8080
 
 ```
 
+```
+автоподключение mongoDB  
+https://www.npmjs.com/package/express-mongo-db
+
+npm install --save express-mongo-db
+
+var app = require('express')();
+var expressMongoDb = require('express-mongo-db');
+
+app.use(expressMongoDb('mongodb://localhost/test'));
+ 
+app.get('/', function (req, res, next) {
+    req.db // => Db object
+});
+```
