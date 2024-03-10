@@ -2,89 +2,60 @@ const Router = require('express');
 const router = Router();
 const abiturs = require('../json/abiturs.json');
 
-const {
-    query,
-    body,
-    validationResult, 
-    matchedData, 
-    checkSchema 
-} = require('express-validator');
-
-const { postValidSchema } = require('../utils/postValidSchema');
-const { getValidSchema } = require('../utils/getValidSchema');
-
-const checkId = (req, res, next) => {
-    let params = req.params;
-    let id = +params.id;
+/**
+ * mfCheckId - middleware function
+ * 
+ * проверяет наличие id и проверяет что id это число
+ * находит индекс объекта с таким id и добавляет к объекту запроса поле index
+ * @param {*} req - объект запроса от клиента
+ * @param {*} res - объект ответа от сервера
+ * @param {*} next - передача управления
+ * @returns 
+ */
+const mfCheckId = (req, res, next) => {
+    let id = +req.params.id;
     if (isNaN(id)) return res.sendStatus(400);
-    let idFind = abiturs.findIndex(x => x.id == id);
-    if (idFind === -1) return res.sendStatus(404);
-    req.id = idFind;
+    let index = abiturs.findIndex(x => x.id == id);
+    if (index === -1) return res.sendStatus(404);
+    req.index = index;
     next();
-}
+} // 
 
 // root = /abiturs
-// http://localhost:3000/abiturs/filter?city=Кунгур
 
-router.get('/filter', 
-    checkSchema(getValidSchema),
-    (req, res) => {
-        let result = validationResult(req);
-        if (result.errors.length > 0) {
-            res.json(result.errors)
-        } else {
-            res.json(abiturs.filter(x => x.city == req.query.city));    
-        }
-    }
-);
+router.get('/filter', (req, res) => {
+    res.json(abiturs.filter(x => x.city == req.query.city));
+}); // http://[::1]:3000/abiturs/filter?city=Кунгур
 
-router.get('/', (req, res) => { res.json(abiturs) });
+router.get('/:id',
+    mfCheckId, // middleware function
+    (req, res) => res.json(abiturs[req.index])
+); // http://[::1]:3000/abiturs/19
 
-router.post('/', 
-    checkSchema(postValidSchema),
-    (req, res) => { // http://localhost:3000/abiturs
-        let result = validationResult(req);
-        if (!result.isEmpty()) {
-            console.log(result);
-            return res.status(400).send({errors: result.array()});
-        }
-        let id = abiturs.at(-1).id + 1;
-        
-        let data = matchedData(req); // это те поля, которые проверены
-        abiturs.push( { id, ...data } ); // добавляемый объект
+router.get('/', (req, res) => { 
+    res.json(abiturs) 
+}); // http://[::1]:3000/abiturs
+
+router.post('/', (req, res) => { // без валидации
+    let id = abiturs.at(-1).id + 1;
+    abiturs.push( { id, ...req.body } ); // добавляемый объект
+    res.json(abiturs); // для контроля
+}); // http://[::1]:3000/abiturs
+
+router.put('/:id',
+    mfCheckId,
+    (req, res) => { // без валидации
+        abiturs[req.index] = { ...abiturs[req.index], ...req.body };
         res.json(abiturs); // для контроля
     }
-);
+); // http://[::1]:3000/abiturs/20
 
-router.put('/:id', // http://localhost:3000/abiturs/20
-    checkId,
-    checkSchema(postValidSchema), 
-    (req, res) => {
-        let result = validationResult(req);
-        if (!result.isEmpty()) {
-            console.log('PUT', result);
-            return res.status(400).send({errors: result.array()});
-        }
-        let { id, body } = req;
-        abiturs[id] = { ...abiturs[id], ...body };
+router.patch('/:id', 
+    mfCheckId,
+    (req, res) => { // без валидации
+        abiturs[req.index] = { ...abiturs[req.index], ...req.body };
         res.json(abiturs); // для контроля
     }
-);
-
-router.patch('/:id', // http://localhost:3000/abiturs/20
-    checkId,
-    (req, res) => {
-        let { id, body } = req; // тут меняем поля без валидации
-        abiturs[id] = { ...abiturs[id], ...body };
-        res.json(abiturs); // для контроля
-    }
-);
-
-router.get('/:id', // http://localhost:3000/abiturs/19
-    checkId,
-    (req, res) => {
-        res.json(abiturs[req.id]);
-    }
-);
+); // http://[::1]:3000/abiturs/20
 
 module.exports = router;

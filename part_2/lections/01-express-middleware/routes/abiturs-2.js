@@ -28,6 +28,6 @@ router.get('/', (req, res) => {
 
 router.get('/*', (req, res) => {
     res.status(404).send('404')
-});
+}); // все остальные пути - ошибка
 
 module.exports = router;
