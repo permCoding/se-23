@@ -2,9 +2,9 @@ const express = require('express'),
     app = express(),
     HOST = 'localhost'
     PORT = 3000,
-    log = console.log;
-
-var abiturs = require('./json/abiturs.json');
+    log = console.log,
+    filename = './json/abiturs.json',
+    abiturs = require(filename);
 
 app.use(express.json()); // обязательно добавить для распознавания объектов
 
@@ -18,35 +18,33 @@ const middleFunction = (req, res, next) => {
     next();
 } // middleWare - можно добавить к запросу 
 
-app.get('/', (req, res) => res.send('/') );
-
-app.get('/abiturs', (req, res) => res.json(abiturs) );
-
-app.post('/abiturs', (req, res) => { // http://localhost:3000/abiturs
-    let id = abiturs.at(-1).id + 1;
-    abiturs.push( { id, ...req.body } ); // добавляемый объект берём из body
-    res.json(abiturs);
-});
+app.get(['/abiturs','/'], (req, res) => res.json(abiturs) );
 
 app.get('/abiturs/:id', middleFunction, (req, res) => {
     res.json(abiturs[req.id]);
 });
 
-app.put('/abiturs/:id', middleFunction, (req, res) => { // http://localhost:3000/abiturs/20
+app.post('/abiturs', (req, res) => { // http://[::1]:3000/abiturs
+    let id = abiturs.at(-1).id + 1;
+    abiturs.push( { id, ...req.body } ); // добавляемый объект берём из body
+    res.json(abiturs);
+});
+
+app.put('/abiturs/:id', middleFunction, (req, res) => { 
     let { id, body } = req; // let body = req.body, id = req.id;
     abiturs[id] = { id, ...body };
-    res.json(abiturs); // для контроля
+    res.json(abiturs); // http://[::1]:3000/abiturs/20 
 });
 
-app.patch('/abiturs/:id', middleFunction, (req, res) => { // http://localhost:3000/abiturs/20
+app.patch('/abiturs/:id', middleFunction, (req, res) => { 
     let { id, body } = req;
     abiturs[id] = { ...abiturs[id], ...body };
-    res.json(abiturs); // для контроля
+    res.json(abiturs); // http://[::1]:3000/abiturs/20
 });
 
-app.delete('/abiturs/:id', middleFunction, (req, res) => { // http://localhost:3000/abiturs/20
+app.delete('/abiturs/:id', middleFunction, (req, res) => { 
     abiturs.splice(req.id, 1);
-    res.json(abiturs);
+    res.json(abiturs); // http://[::1]:3000/abiturs/20
 });
 
 app.listen(PORT, HOST, () => log(`http://${HOST}:${PORT}/`));
