@@ -6,7 +6,8 @@ const express = require('express'),
     { writeFileSync } = require('fs'), // sync
     decache = require('decache'), // для отмены кэширования json
     filename = './json/abiturs.json';
-    
+
+let index = null;
 let abiturs = null; // для хранения массива данных
 
 // app.disable('x-powered-by'); // отключить заголовки ответа
@@ -29,9 +30,9 @@ app.use((req, res, next) => { // middleware
  */
 const checkId = (req, res) => {
     // log(JSON.stringify(req.headers, null, 4)); // запраш язык страницы
-    const methods = ['PUT', 'PATCH', 'DELETE']; 
+    const methods = ['PUT', 'PATCH', 'DELETE'];
+    log(req.method, req.params);
     if (methods.includes(req.method)) {
-        log(req.method, req.params);
         if ((req.params.id === undefined) || (isNaN(req.params.id))) { 
             res.status(400).end();
         }
@@ -52,7 +53,7 @@ app.post('/abiturs/save/', (req, res) => {
 
 app.post(['/abiturs','/'], (req, res) => {
     let id = +abiturs.at(-1).id + 1;
-    abiturs.push( { id, ...req.body } ); // добавляемый объект берём из body
+    abiturs.push( { id, ...req.body } ); // добавляемый объект
     res.json(abiturs);
 }); // http://[::1]:3000/abiturs
 
@@ -63,8 +64,8 @@ app.put('/abiturs/:id/', (req, res) => {
 
 app.patch('/abiturs/:id', (req, res) => { 
     if (checkId(req, res)) { 
-        // abiturs[req.index] = { ...abiturs[req.index], ...req.body }; // ver1
-        abiturs[req.index] = Object.assign(abiturs[req.index], req.body) // ver2
+        abiturs[req.index] = { ...abiturs[req.index], ...req.body }; // ver1
+        // abiturs[req.index] = Object.assign(abiturs[req.index], req.body) // ver2
         // ver3 циклом по переданным полям
     }
     res.json(abiturs); // http://[::1]:3000/abiturs/20
