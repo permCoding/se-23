@@ -7,6 +7,7 @@ let link = `${host}${strParams}`;
 
 (async () => {
     let resp = await fetch(link, { headers, "body": null, "method": "GET" });
-    let strJSON = await resp.json();
-    console.log(JSON.stringify(strJSON, null, 4));
+    let json = await resp.json();
+    let products = json.data.products;
+    console.log(JSON.stringify(products, null, 4));
 })();
