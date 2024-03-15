@@ -19,18 +19,19 @@ tr:nth-child(even) {
     background-color: #CFE5DF; 
 }
 td {
+    height: 36px;
     text-align: center;
     position: relative;
     vertical-align: middle;
     margin: auto;
 }
 td.id {
-    height: 36px;
+    font-size: 12px;
+    font-family: "Courier", serif;
     font-weight: bolder;
-    color: darkgreen;
+    color: green;
 }
 td.item {
-    height: 36px;
     text-align: left;
     padding-left: 15px;
 }

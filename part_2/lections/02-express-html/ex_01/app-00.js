@@ -1,3 +1,4 @@
+// ejs filter limit без заголовков
 // подключение внешних зависимостей
 const express = require('express');
 
@@ -21,7 +22,7 @@ app.get('/filter', (req, res) => {
     let { query } = req;
     let model = { arr: arr.filter(x => x.city == query.city) };
     res.render('index-00', model);
-});
+}); // http://localhost:3000/3
 
 app.get('/:limit', (req, res) => {
     let model = { arr: arr.slice(0, req.params.limit) };
