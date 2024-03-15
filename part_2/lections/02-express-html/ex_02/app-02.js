@@ -23,7 +23,8 @@ app.get('/fields', (req, res) => {
         {
             keys, 
             titles, 
-            arr: arr.toSorted((a,b)=>a[sortField]>b[sortField]?+1:-1)
+            arr: arr.sort((a,b)=>a[sortField]>b[sortField]?+1:-1)
+            // arr: arr.toSorted((a,b)=>a[sortField]>b[sortField]?+1:-1)
         }
     );
 });
@@ -39,14 +40,16 @@ app.post('/abiturs/fields', (req, res) => {
         {
             keys, 
             titles, 
-            arr: arr.toSorted((a,b) => a[sortField]>b[sortField]? +1*d: -1*d)
+            arr: arr.sort((a,b) => a[sortField]>b[sortField]? +1*d: -1*d)
+            // arr: arr.toSorted((a,b) => a[sortField]>b[sortField]? +1*d: -1*d)
         }
     );
 });
 
 app.get('/abiturs/new', (req, res) => {
     let fill = {
-        lastName: "Фамилия"
+        lastName: "Фамилия",
+        rating: 200
     };
     res.render('new', { fill });
 });
