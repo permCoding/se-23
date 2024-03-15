@@ -2,12 +2,12 @@ const express = require('express'),
     app = express(),
     HOST = 'localhost', // '127.0.0.1' // [::1]
     PORT = 3000,
-    { log } = require('console'), // https://nodejs.org/api/console.html
+    // { log } = require('console'), // https://nodejs.org/api/console.html
     { writeFileSync } = require('fs'), // sync
     decache = require('decache'), // для отмены кэширования json
     filename = './json/abiturs.json';
-
-let index = null;
+var { log } = require("console"); 
+// let index = null; // можно и через глобальную переменную
 let abiturs = null; // для хранения массива данных
 
 // app.disable('x-powered-by'); // отключить заголовки ответа
