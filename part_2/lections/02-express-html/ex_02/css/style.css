@@ -1,8 +1,14 @@
+@font-face {
+	font-family: 'Gotham-Pro';
+	src: url('/fonts/GothamPro.woff') format('woff');
+    font-weight: 300;
+	font-style: normal;
+}
 body {
     background: url(../css/bg_grid.png) repeat ;
     background-color: #f6fff5;
     color: rgb(16, 45, 28);
-    font-family: "Comic Sans MS", serif;
+    font-family: Gotham-Pro, serif;
     font-size: 16px;
     margin-top: 25px;
 }
@@ -92,4 +98,33 @@ textarea {
     height: 36px;
     margin-top: 5px;
     padding: 0px 9px;
+}
+.td-del { 
+    color:#FFFFFF;
+    cursor:pointer;
+    font-size:0.9em;
+    border: solid 1px #eb4b4b;
+    border-radius:3px;
+    background:#eb4b4b;
+    width: 90px;
+    height: 10px;
+    margin-top: 0px;
+    padding: 0px 0px;
+}
+.del { 
+    color:#FFFFFF;
+    cursor:pointer;
+    font-size:0.9em;
+    border: solid 1px #eb4b4b;
+    border-radius:3px;
+    background:#eb4b4b;
+    width: 30px;
+    height: 27px;
+    margin: 0px 3px;
+    padding: 0px 0px;
+}
+.del:hover {
+    background:#ffffff;
+    color: #000;
+    border: solid 1px #eb4b4b;
 }

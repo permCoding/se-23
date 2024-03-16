@@ -29,6 +29,8 @@ app.get('/fields', (req, res) => {
     );
 });
 
+
+// get и post для пути - /abiturs/fields
 app.get('/abiturs/fields', (req, res) => {
     res.render('fields', { titles });
 });
@@ -46,6 +48,8 @@ app.post('/abiturs/fields', (req, res) => {
     );
 });
 
+
+// get и post для пути - /abiturs/new
 app.get('/abiturs/new', (req, res) => {
     let fill = {
         lastName: "Фамилия",
