@@ -10,7 +10,7 @@ let arr = require('./json/abiturs.json');
 let titles = require('./json/titles.json');
 
 app.get('/', (req, res) => {
-    res.render('index-00', { arr });
+    res.render('index-00.ejs', { arr: arr });
 });
 
 app.get('/fields', (req, res) => {
@@ -21,7 +21,7 @@ app.get('/fields', (req, res) => {
 });
 // http://localhost:3000/fields?keys=id,lastName,city,gender,rating&sortField=rating
 // http://localhost:3000/fields?keys=id,lastName,city,gender,rating&sortField=city
-// http://localhost:3000/fields?keys=id,lastName,city,gender,rating&sortField=gender
+// http://localhost:3000/fields?keys=lastName,city,gender&sortField=gender
 // и как это сделать на web-форме
 // чтобы не руками набирать поля и направления сортировки
 // нужны checkboxes и radiobuttons
