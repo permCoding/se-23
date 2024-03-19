@@ -52,7 +52,7 @@ app.post('/abiturs/fields', (req, res) => {
 // get и post для пути - /abiturs/new
 app.get('/abiturs/new', (req, res) => {
     let fill = {
-        lastName: "Фамилия",
+        lastName: "-Фамилия-",
         rating: 200
     };
     res.render('new', { fill });
@@ -60,6 +60,7 @@ app.get('/abiturs/new', (req, res) => {
 
 app.post('/abiturs/new', (req, res) => {
     let { lastName, gender, rating } = req.body;
+    console.log(req.body);
     let newAbit = {
         "id": arr.length+1,
         "lastName": lastName,

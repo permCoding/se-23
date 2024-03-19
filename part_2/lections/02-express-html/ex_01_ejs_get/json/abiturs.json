@@ -43,7 +43,7 @@
         "id": "6",
         "lastName": "Круглов",
         "rating": "191",
-        "gender": "1",
+        "gender": 1,
         "birthDate": "2002-04-23",
         "city": "Березники"
     },

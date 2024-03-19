@@ -2,7 +2,7 @@
     "id": "id",
     "lastName": "Фамилия",
     "rating": "рейтинг",
-    "gender": "пол",
+    "gender": "- пол -",
     "birthDate": "дата рожд",
     "city": "город"
 }

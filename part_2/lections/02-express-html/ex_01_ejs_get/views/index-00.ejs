@@ -23,14 +23,26 @@
             <td class="item">
                 <%=arr[i].rating%>
             </td>
-            <td class="item">
-                <%= arr[i].gender == 1? '-М-': '-Ж-' %>
-            </td>
+            
+            <% if (arr[i].gender == '1') {
+                gender = 'male'    
+            } else {
+                gender = 'female'
+            } %>
+
+            <td class="item"> <%= gender %> </td>
+
+            <!-- 
+                <td class="item">
+                    <%= arr[i].gender == 1? 'М': 'Ж' %> 
+                </td>
+            -->
+
             <td class="item">
                 <%=arr[i].city%>
             </td>
         </tr>
-        <%} %>
+        <% } %>
     </table>
 
 </body>

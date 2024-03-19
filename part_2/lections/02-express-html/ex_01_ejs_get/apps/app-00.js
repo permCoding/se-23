@@ -2,9 +2,17 @@
 // подключение внешних зависимостей
 const express = require('express');
 
+
+
+
+khbfuoerfboueg3
+wepioyfb3i4uhjf
+we;khfb3iu4jk
+
 // настройка приложения
 const app = express(); // app.use(express.json());
 app.use('/css', express.static('css'));
+app.use('/apps', express.static('apps'));
 app.set('view engine', 'ejs'); // npm i ejs
 
 // паттерн проектирования MVC
