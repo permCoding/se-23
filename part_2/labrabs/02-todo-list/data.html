@@ -1,0 +1,18 @@
+<label for="start">Выбрать дату:</label>
+
+<input 
+    type="date" 
+    id="start" 
+    name="input-date" 
+    value="2024-03-17" 
+    min="2024-03-01" 
+    max="2024-03-31" 
+    required />
+
+<script> 
+    const inputDate = document.querySelector('input[name="input-date"]');
+
+    inputDate.addEventListener("change", (e) => {
+        console.log(inputDate["value"])
+    });
+</script>
