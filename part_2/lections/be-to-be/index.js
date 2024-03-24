@@ -1,5 +1,4 @@
-{ // настройки
-var express = require('express'),
+const express = require('express'),
     app = express(),
     HOST = 'localhost', // '127.0.0.1' // [::1]
     PORT = 3000,
@@ -7,7 +6,7 @@ var express = require('express'),
     filename = './json/abiturs.json',
     abiturs = require(filename);
     // http://[::1]:3000/abiturs
-}
+
 app.use(express.json()); // post put patch
 
 app.get(['/abiturs','/'], (req, res) => res.json(abiturs));
@@ -28,4 +27,4 @@ app.delete(['/abiturs/:id','/:id'], (req, res) => {
 });
 
 app.listen(PORT, HOST, () => log(`http://${HOST}:${PORT}/`));
-// https://developer.mozilla.org/ru/docs/Web/JavaScript
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
