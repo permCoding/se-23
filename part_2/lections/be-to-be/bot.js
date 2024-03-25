@@ -1,11 +1,15 @@
 let get = async (link) => {
-    try {
-        let resp = await fetch(link);
-        let json = await resp.json();
-        console.log(JSON.stringify(json, null, 4));            
-    } catch (error) {
-        console.log(' - - - ');
-    }
+    let resp = await fetch(link);
+    let json = await resp.json();
+    console.log(JSON.stringify(json, ['lastName', 'city'], 4));
+
+    // try {
+    //     let resp = await fetch(link);
+    //     let json = await resp.json();
+    //     console.log(JSON.stringify(json, null, 4));        
+    // } catch (error) {
+    //     console.log(' - - - ');
+    // }
 }
 
 let getThen = (link) => {
@@ -36,9 +40,9 @@ let host = 'http://[::1]:3000';
 let rout = '/abiturs';
 let url = `${host}${rout}`;
 
-// get(url + '20'); // 
+get(url); // 
 // getThen(url+'20');
-getSync(url);
+// getSync(url);
 // post();
-let id = 19;
+// let id = 19;
 // delete(url, id);
