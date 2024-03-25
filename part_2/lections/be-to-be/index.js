@@ -27,4 +27,4 @@ app.delete(['/abiturs/:id','/:id'], (req, res) => {
 });
 
 app.listen(PORT, HOST, () => log(`http://${HOST}:${PORT}/`));
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
+// https://developer.mozilla.org/en-US/docs/Web/
