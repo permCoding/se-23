@@ -14,8 +14,16 @@ const arr = require('./json/abiturs.json');
 
 // controllers - обработчики событий
 app.get('/', (req, res) => {
-    let model = { arr };
-    res.render('index', model); // view - представление
+    let model = { 
+        'arr': arr,
+        'id': 10,
+        'lab': '03'
+    };
+    res.render('index.hbs', { 
+        'arr': arr,
+        'id': 10,
+        'lab': '03'
+    }); // view - представление
 });
 
 app.get('/filter', (req, res) => {
