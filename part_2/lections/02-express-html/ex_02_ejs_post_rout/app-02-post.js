@@ -2,20 +2,23 @@ const express = require('express');
 const { port, host } = require('./config.json');
 
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
 app.set('view engine', 'ejs');
 app.use('/css', express.static('css'));
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 let arr = require('./json/abiturs.json');
 let titles = require('./json/titles.json');
+
+// = = = = = = = 
 
 app.get('/', (req, res) => {
     let keys = Object.keys(titles); // тут выбираем все поля
     res.render('index-01', { titles, arr, keys });
 });
 
-// http://localhost:3000/fields?keys=id,lastName,city,gender,rating&sortField=rating
 app.get('/fields', (req, res) => {
     let keys = req.query.keys.split(','); console.log(keys);
     let sortField = req.query.sortField; console.log(sortField);
@@ -27,7 +30,7 @@ app.get('/fields', (req, res) => {
             // arr: arr.toSorted((a,b)=>a[sortField]>b[sortField]?+1:-1)
         }
     );
-});
+}); // http://localhost:3000/fields?keys=id,lastName,city,gender,rating&sortField=rating
 
 
 // get и post для пути - /abiturs/fields
