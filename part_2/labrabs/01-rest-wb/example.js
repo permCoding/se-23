@@ -14,3 +14,6 @@ let url = `${host}${rout}?${query}`;
 let headers = require("./headers.json");
 
 get_json_from_url(url);
+
+
+// fetch сам преобразует кириллицу в Unicode
