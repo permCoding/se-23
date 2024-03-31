@@ -31,3 +31,5 @@ browser / Sourses / Snippets / New Snippet
 [fetch](https://proghunter.ru/articles/fetch-requests-in-javascript-syntax-and-examples)  
 
 ---  
+
+URL - Uniform Resource Locator  
