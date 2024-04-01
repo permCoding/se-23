@@ -21,7 +21,7 @@ hbs.registerHelper('getCount', () => arr.length);
 app.use((req, resp, next) => {
     console.log(req.body, req.query);
     next();
-})
+});
 
 // маршрутизация
 app.get('/', (req, res) => {
