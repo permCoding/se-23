@@ -142,3 +142,14 @@ app.get('/', function (req, res, next) {
     req.db // => Db object
 });
 ```
+
+```txt
+комменты в review кода  
+Praise - похвала
+Nitpick - придирка
+Issue - проблема
+Question - вопрос
+Suggestion - предложение
+Non-blocking - неблокирующие
+```
+
