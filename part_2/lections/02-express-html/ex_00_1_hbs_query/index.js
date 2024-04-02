@@ -35,7 +35,7 @@ app.get('/filter', (req, res) => {
 app.get('/:limit', (req, res) => {
     let model = { arr: arr.slice(0, req.params.limit) };
     res.render('index', model);
-}); // http://localhost:3000/8
+}); // http://localhost:3000/3
 
 // запуск приложения
 app.listen(3000, console.log('http://localhost:3000'));
