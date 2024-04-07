@@ -9,6 +9,7 @@ global.titles = require('./json/titles.json');
 
 app.set('view engine', 'ejs');
 app.use('/css', express.static('css'));
+app.use('/fonts', express.static('fonts'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

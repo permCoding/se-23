@@ -5,6 +5,7 @@ const app = express();
 app.use(express.json());
 app.set('view engine', 'ejs');
 app.use('/css', express.static('css'));
+app.use('/fonts', express.static('fonts'));
 
 
 let arr = require('./json/abiturs.json');
