@@ -129,9 +129,7 @@ npx kill-port 8080
 
 ```
 - монитор для отслеживания изменений в js коде:
-npm install nodemon
 npm install nodemon -g
-    опция -g - это установка глобально для всех проектов
 - потом запуск такой:
 nodemon index.js
 ```
