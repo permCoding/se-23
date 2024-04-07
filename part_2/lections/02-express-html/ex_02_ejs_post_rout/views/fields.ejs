@@ -9,23 +9,25 @@
         <h3>Сформируйте запрос:</h3>
 
         <form>
-
+            
             <br>Укажите какие поля выбрать:<br>
             <% for (let title in titles) { %>
-                <input type="checkbox" name="keys" value="<%=title%>" /> <%=titles[title]%> <br>
+                <input type="checkbox" name="keys" value="<%=title%>" /> 
+                <%=titles[title]%> <br>
             <% } %>
-            <br>
+            <br> <!-- checkbox передаётся как массив keys: ['lastName', 'rating'] -->
 
             <br>Укажите поле для сортировки:<br>
             <% for (let title in titles) { %>
-                <input type="radio" name="sortField" value="<%=title%>" /> <%=titles[title]%> <br>
+                <input type="radio" name="sortField" value="<%=title%>" /> 
+                <%=titles[title]%> <br>
             <% } %>
-            <br>
+            <br> <!-- radio передаётся только выбранная value -->
 
             <br>Укажите направление сортировки:
             <br><input type="radio" name="direct" value="asc" checked /> по возрастанию
             <br><input type="radio" name="direct" value="desc" /> по убыванию
-            <br><br>
+            <br><br> <!-- radio передаётся только выбранная value -->
 
             <button class="green"
                 formaction="/abiturs/fields" 

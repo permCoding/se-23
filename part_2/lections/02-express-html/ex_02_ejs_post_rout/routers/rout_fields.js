@@ -5,6 +5,7 @@ router.get('/abiturs/fields', (req, res) => {
 });
 
 router.post('/abiturs/fields', (req, res) => {
+    console.log(`post-body: ${JSON.stringify(req.body, null, 2)}`);
     let { keys, sortField, direct } = req.body;
     let d = direct==="asc"? +1: -1;
     res.render('index-01', 
