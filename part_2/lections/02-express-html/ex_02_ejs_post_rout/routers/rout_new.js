@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-router.get('/new', (req, res) => {
+router.get('/', (req, res) => {
     let fill = {
         lastName: "-Фамилия-",
         rating: 200
@@ -8,7 +8,7 @@ router.get('/new', (req, res) => {
     res.render('new', { fill });
 });
 
-router.post('/new', (req, res) => {
+router.post('/', (req, res) => {
     console.log(req.body); // to control the values
     // let maxId = abiturs.length; // ver_1
     // let maxId = Math.max(...abiturs.map(x => +x.id)); // ver_2

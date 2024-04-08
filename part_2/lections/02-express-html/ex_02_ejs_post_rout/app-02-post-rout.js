@@ -14,6 +14,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(rt_fields);
-app.use('/abiturs', rt_new);
+app.use('/abiturs/new', rt_new);
 
 app.listen(port, console.log(`http://${host}:${port}`));

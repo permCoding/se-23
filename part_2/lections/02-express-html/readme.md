@@ -9,3 +9,7 @@ lect 2024-04-01
 - ejs + Router()  
 
 ---  
+
+Router() - https://expressjs.com/en/guide/routing.html  
+
+---  
