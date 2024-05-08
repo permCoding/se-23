@@ -68,3 +68,55 @@
 
 ---  
 
+Для создания и редактирования БД SQLite можете использовать:  
+
+- **DB Browser for SQLite** или другой аналогичный редактор  
+- генерировать БД, таблицы и ключи из программы на js  
+  - пример в файле **generate_db.js**  
+
+---  
+
+Создать таблицу с внешним ключом:  
+
+```SQL
+CREATE TABLE child (
+    id           INTEGER PRIMARY KEY,
+    parent_id    INTEGER,
+    description  TEXT,
+    FOREIGN KEY (parent_id) REFERENCES parent(id)
+);
+```
+---  
+
+Создать отдельно внешний ключ:  
+```SQL
+ALTER TABLE child 
+	ADD CONSTRAINT fk_child_parent
+	FOREIGN KEY (parent_id)
+    REFERENCES parent(id);
+```
+
+---  
+
+Создать индекс по полю таблицы:  
+
+```SQL
+CREATE INDEX "index_name" ON students ("name")
+```
+
+---  
+
+Удалить индекс:  
+
+```SQL
+DROP INDEX index_name
+```
+
+---  
+
+Чтобы включить поддержку внешних ключей в SQLite, нужно выполнить команду:
+
+> PRAGMA foreign_keys = ON;
+
+---  
+
