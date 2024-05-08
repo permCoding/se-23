@@ -20,19 +20,23 @@ const createTable = () => {
 		PRIMARY KEY("id" AUTOINCREMENT), \
 		FOREIGN KEY(city) REFERENCES cities(id))'
 	db.run(queryAbiturs)
-
-	db.close()
 }
 
 const deleteTable = () => {
 	let query = "DROP TABLE IF EXISTS abiturs"
 	db.run(query)
-	db.close()
 }
 
 const insertData = () => {
-	const citiesName = require('./json/cities.json').citiesName
-	let postFix = citiesName.map(x => `("${x}")`).join(',')
+	const citiesName = require('fs')
+		.readFileSync('./json/cities.csv', 'utf-8')
+		.split('\n')
+		.map(x => x.split(',')[1]) // ver-1
+	// const citiesName = require('./json/cities.json').citiesName // ver-2
+
+	let postFix = citiesName
+		.map(x => `("${x}")`)
+		.join(',') // сразу много записей в один запрос
 	let queryInsertCities = `INSERT INTO cities ("city") VALUES ` + postFix
 	db.run(queryInsertCities)
 
@@ -48,9 +52,10 @@ const insertData = () => {
 		// let record = [a.lastName, a.rating, a.gender, a.birthDate, a.city]
 		db.run(queryInsert, record)
 	}
-	db.close()
 }
 
 // createTable()
 // deleteTable()
 insertData()
+
+db.close()

@@ -12,12 +12,14 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     const db = new sqlite3.Database('./db/abiturs.sqlite3')
     console.log(req.body); // to control the values
-	let queryInsert = `INSERT INTO \ 
-		abiturs ("lastName", "rating", "gender", "birthDate", "city") \ 
-		VALUES (?, ?, ?, ?, ?)`
 
     let { lastName, rating, gender } = req.body
     let birthDate = '2004-06-20', city = 'Кунгур' // заглушка
+
+    let queryInsert = `INSERT INTO \ 
+        abiturs ("lastName", "rating", "gender", "birthDate", "city") \ 
+        VALUES (?, ?, ?, ?, (select id from cities where city = ?))`
+
     let record = [lastName, rating, gender, birthDate, city]
 
     db.run(queryInsert, record, (err) => {

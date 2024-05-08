@@ -11,6 +11,12 @@ router.get('/', (req, res) => {
         ON abiturs.city = cities.id`
     
     db.all(querySelect, (err, rows) => {
+
+        rows = rows.map(x => {
+            x.gender = ['ж', 'м'][x.gender];
+            return x
+        })
+
         if (err) console.log(err.message);
         res.render('index', { 
             titles: global.titles, 
