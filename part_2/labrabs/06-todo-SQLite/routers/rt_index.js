@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
     let querySelect = `SELECT id, lastName, rating, gender, birthDate, city FROM abiturs`
     
     db.all(querySelect, (err, rows) => {
+        if (err) console.log(err.message);
         res.render('index', { 
             titles: global.titles, 
             arr: rows, 
