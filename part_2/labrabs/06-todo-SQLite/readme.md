@@ -104,12 +104,28 @@ ALTER TABLE child
 CREATE INDEX "index_name" ON students ("name")
 ```
 
+```js
+const createIndex = () => {
+	let query = 'CREATE INDEX "index_name" ON students ("name")'
+	db.run(query)
+	db.close()
+}
+```
+
 ---  
 
 Удалить индекс:  
 
 ```SQL
 DROP INDEX index_name
+```
+
+```js
+const deleteIndex = () => {
+	let query = 'DROP INDEX index_name'
+	db.run(query)
+	db.close()
+}
 ```
 
 ---  
@@ -120,3 +136,24 @@ DROP INDEX index_name
 
 ---  
 
+Добавить много данных с транзакциями:  
+
+```js
+const insertData = (count=100_000) => {
+	db.serialize(function() {
+		let query = 'INSERT INTO students ("name", "rate") VALUES (?, ?)'
+
+		db.run("begin transaction")
+		for (var i = 0; i < count; i++) {
+			db.run(query, getName(), getRate())
+			if (i%100_000==0) {
+				db.run("commit")
+				db.run("begin transaction")	
+			}
+		}
+		db.run("commit")
+	})
+}
+```
+
+---  
