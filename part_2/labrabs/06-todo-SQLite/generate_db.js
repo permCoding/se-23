@@ -2,6 +2,7 @@ const sqlite3 = require('sqlite3').verbose() // npm install --save sqlite3
 const db = new sqlite3.Database('./db/abiturs.sqlite3')
 
 const createTable = () => {
+	// db.get("PRAGMA foreign_keys = ON") // включить поддержку внешних ключей
 	let query = 'CREATE TABLE IF NOT EXISTS "abiturs" ( \
 		"id"	INTEGER, \
 		"lastName"	TEXT, \

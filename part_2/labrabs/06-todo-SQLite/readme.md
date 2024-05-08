@@ -134,6 +134,10 @@ const deleteIndex = () => {
 
 > PRAGMA foreign_keys = ON;
 
+```js
+db.get("PRAGMA foreign_keys = ON")
+```
+
 ---  
 
 Добавить много данных с транзакциями:  
