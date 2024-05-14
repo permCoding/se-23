@@ -3,18 +3,15 @@ const express = require('express'),
     session = require('express-session'),
     md5 = require('md5'),
     log = console.log,
-    sessionTime = 5 * 60_000, // 5 минут
-    hashPassword = 'cfcd208495d565ef66e7dff9f98764da'
+    sessionTime = 1 * 60_000, // 1 мин
+    hashPassword = '4a7d1ed414474e4033ac29ccb8653d9b' // это 0000
+    // в БД храним не сам пароль, а его хеш
 
 const host = 'localhost', port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-app.use(session({
-    secret: 'tasks',
-    cookie: { maxAge: sessionTime }
-}));
+app.use(session({ secret: 'tasks' }));
 
 let form = '\
     <form> \
@@ -31,16 +28,19 @@ app.get(['/login','/'], (req, res) => {
 });
     
 app.post('/login', (req, res) => {
-    if (md5(req.body.password) !== hashPassword) { 
+    if (md5(req.body.password) !== hashPassword) { // сравниваются хэши
         res.redirect('/'); 
     } else {
         req.session.user = 'admin';
         req.session.cookie.maxAge = sessionTime;
-        res.redirect('/home');
+        log(req.session)
+        // удалить можно в браузере - F12 / Application / Storage / Coocies
+        res.redirect('/home'); // авторизован успешно
     }
 });
 
 app.get('/home', (req, res) => {
+    log(req.session.user);
     (req.session.user !== 'admin')
         ? res.redirect('/login')
         : res.send(`=> You're authorized => ${req.session.cookie.maxAge}`)

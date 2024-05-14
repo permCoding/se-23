@@ -1,4 +1,4 @@
-const crypto = require('crypto')
+const crypto = require('crypto') // node:crypto
 const md5 = require('md5')
 const sha1 = require('sha1')
 
@@ -19,7 +19,7 @@ const ex_03 = () => {
     return sha1(string)
 }
 
-let string = '0'
+let string = '0000' // password
 
 log(ex_01(string))
 log(ex_02(string))

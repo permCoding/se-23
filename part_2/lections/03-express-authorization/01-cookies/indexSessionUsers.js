@@ -20,6 +20,8 @@ app.use((req, res, next) => {
     next();
 });
 
+// можно проверить - закрыть страницу и вернуться на страницу page
+// если сессия не истекла - то покажет кто авторизован
 // routing
 app.post('/login', (req, res) => {
     req.session.message = 'login';
@@ -27,11 +29,11 @@ app.post('/login', (req, res) => {
     if ((req.body.login !== undefined) && ((req.body.password !== undefined))) {
         log(req.body.login); log(Object.keys(passwords));
         if (Object.keys(passwords).includes(req.body.login)) {
-            if (req.body.password === passwords[req.body.login]) {
+            if (req.body.password === passwords[req.body.login]) { // или хэши
                 req.session.tokenUser = req.body.login;
-                req.session.cookie.maxAge = 60_000; // 1 min
-                req.session.message = req.body.login;
-                req.session.timeOfEntry = req.session.cookie._expires;
+                req.session.cookie.maxAge = req.body.login == 'admin'? 24*60*60_000: 30_000;
+                req.session.message = req.body.login; // для контроля
+                req.session.timeOfEntry = req.session.cookie._expires; // для контроля
                 res.redirect('/page');
             } else {
                 log('>>> пароль не тот');
