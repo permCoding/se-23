@@ -21,6 +21,10 @@ app.get('/', (req, res) => {
     res.send(`tokenUser: ${req.cookies.tokenUser}`);
 });
 
+app.get('/admin', (req, res) => {
+    res.send(`tokenUser: ${req.cookies.tokenUser}`);
+});
+
 app.get('/user', (req, res) => {
     res.send(`tokenUser: ${req.cookies.tokenUser}, ${req.url}`);
 });
