@@ -7,7 +7,7 @@ const createTable = () => {
 	let queryCities = 'CREATE TABLE IF NOT EXISTS "cities" ( \
 		"id"	INTEGER, \
 		"city"	INTEGER, \
-		PRIMARY KEY("id" AUTOINCREMENT))'
+		PRIMARY KEY("id" AUTOINCREMENT)); commit'
 	db.run(queryCities)
 
 	let queryAbiturs = 'CREATE TABLE IF NOT EXISTS "abiturs" ( \
@@ -36,7 +36,7 @@ const insertData = () => {
 
 	let postFix = citiesName
 		.map(x => `("${x}")`)
-		.join(',') // сразу много записей в один запрос
+		.join(',') // сразу много записей в один запрос ("afwafq"),("wfafafa")
 	let queryInsertCities = `INSERT INTO cities ("city") VALUES ` + postFix
 	db.run(queryInsertCities)
 
