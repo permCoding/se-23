@@ -4,7 +4,8 @@ const sqlite3 = require('sqlite3').verbose()
 router.get('/', (req, res) => {
     let fill = {
         lastName: "-Фамилия-",
-        rating: 200
+        rating: 200,
+        todo: 'Добавить'
     };
     res.render('new', { fill });
 });
