@@ -172,10 +172,10 @@ const insertData = (count=100_000) => {
 Синтаксис запроса SQL для соединия трёх таблиц:  
 
 ```SQL
-SELECT t1.col, t3.col 
+SELECT t1.col, t2.col, t3.col 
 FROM table1 
-join table2 ON table1.primarykey = table2.foreignkey
-join table3 ON table2.primarykey = table3.foreignkey
+INNER JOIN table2 ON table1.primarykey = table2.foreignkey
+INNER JOIN table3 ON table2.primarykey = table3.foreignkey
 ```
 
 ---  
