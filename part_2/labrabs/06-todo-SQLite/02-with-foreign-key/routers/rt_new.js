@@ -14,11 +14,16 @@ router.post('/', (req, res) => {
     console.log(req.body); // to control the values
 
     let { lastName, rating, gender } = req.body
+    // let city = req.body.city
     let birthDate = '2004-06-20', city = 'Кунгур' // заглушка
 
     let queryInsert = `INSERT INTO \ 
         abiturs ("lastName", "rating", "gender", "birthDate", "city") \ 
         VALUES (?, ?, ?, ?, (select id from cities where city = ?))`
+
+    // let queryInsert = `INSERT INTO \ 
+    //     abiturs ("lastName", "rating", "gender", "birthDate", "city") \ 
+    //     VALUES (?, ?, ?, ${gender}, (select id from cities where city = ?))`
 
     let record = [lastName, rating, gender, birthDate, city]
 
