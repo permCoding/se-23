@@ -1,6 +1,7 @@
 
- в linux можно просто запускать так:  
- time node app.js  
+
+> в linux можно просто запускать так:  
+> time node app.js  
 
 ```js
 
@@ -21,4 +22,3 @@ for (let j = 0; j < 10000; j++) {
 }
 console.timeEnd('letTest');
 ```
-
